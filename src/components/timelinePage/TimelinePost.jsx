@@ -1,20 +1,24 @@
 import React, { useState, useRef } from 'react';
-import like from 'images/likeReaction.png';
+
+import { Link } from 'react-router-dom';
+import moment from 'moment';
+import EditNewsForm from '../newsFeed/EditNewsForm';
+import PostComment from './PostComment';
+import PostReaction from './PostReaction';
+import headers from 'services/headers';
+import axios from 'axios';
+
+import defaultAvatar from 'images/defaultAvatar.png';
+
+import edit from 'images/edit.png';
+import deleteIcon from 'images/delete.png';
+
+import like from 'images/like.png';
 import love from 'images/love.png';
 import haha from 'images/haha.png';
 import wow from 'images/wow.png';
 import sad from 'images/sad.png';
 import angry from 'images/angry.png';
-import defaultAvatar from 'images/defaultAvatar.png';
-import pen from 'images/pen.png';
-import deleteIcon from 'images/delete.png';
-import { Link } from 'react-router-dom';
-import moment from 'moment';
-import EditNewsForm from '../newsFeed/EditNewsForm';
-import PostComments from './PostComments';
-import PostReactions from './PostReactions';
-import headers from 'services/headers';
-import axios from 'axios';
 
 export default function TimelinePost({
     post_id,
@@ -54,22 +58,17 @@ export default function TimelinePost({
         console.log(data);
     };
 
-    const likes = postReactions.filter((reaction) => reaction.type === 'Like').length;
-    const loves = postReactions.filter((reaction) => reaction.type === 'Love').length;
-    const hahas = postReactions.filter((reaction) => reaction.type === 'Haha').length;
-    const wows = postReactions.filter((reaction) => reaction.type === 'Wow').length;
-    const sads = postReactions.filter((reaction) => reaction.type === 'Sad').length;
-    const angrys = postReactions.filter((reaction) => reaction.type === 'Angry').length;
+    const reactionFilter = type => postReactions.filter((reaction) => reaction.type === type).length;
     const reactionCounts = [
-        { type: likes, img: like, key: 1 },
-        { type: loves, img: love, key: 2 },
-        { type: hahas, img: haha, key: 3 },
-        { type: wows, img: wow, key: 4 },
-        { type: sads, img: sad, key: 5 },
-        { type: angrys, img: angry, key: 6 },
+        { type: reactionFilter('Like'), img: like, key: 1 },
+        { type: reactionFilter('Love'), img: love, key: 2 },
+        { type: reactionFilter('Haha'), img: haha, key: 3 },
+        { type: reactionFilter('Wow'), img: wow, key: 4 },
+        { type: reactionFilter('Sad'), img: sad, key: 5 },
+        { type: reactionFilter('Angry'), img: angry, key: 6 },
     ];
 
-    const sortedReactionCountes = reactionCounts.sort((a, b) => b.type - a.type);
+    const sortedReactionCounts = reactionCounts.sort((a, b) => b.type - a.type);
 
     const commentInput = useRef();
     const focusCommentInput = () => {
@@ -89,7 +88,7 @@ export default function TimelinePost({
                                     type="button"
                                     onClick={() => setShowEditForm(!showEditForm)}
                                 >
-                                    <img src={pen} alt=" " />
+                                    <img src={edit} alt=" " />
                                     Edit
                                 </button>
                             </div>
@@ -134,7 +133,7 @@ export default function TimelinePost({
             </figure>
             <div className="reactions-comment-count">
                 <ul className="reactions">
-                    {sortedReactionCountes.map(
+                    {sortedReactionCounts.map(
                         (reaction) =>
                             !!reaction.type && (
                                 <li key={reaction.key}>
@@ -151,7 +150,7 @@ export default function TimelinePost({
             </div>
             <div className="like-comment-buttons">
                 <div className="like" id="like-btn">
-                    <PostReactions
+                    <PostReaction
                         post_id={post_id}
                         user_id={currentUser._id}
                         setPostReactions={setPostReactions}
@@ -162,7 +161,7 @@ export default function TimelinePost({
                     <i></i>Comment
                 </button>
             </div>
-            <PostComments comments={postComments} />
+            <PostComment comments={postComments} />
             <form onSubmit={(e) => createComment(e)}>
                 <img src={currentUser.profile_picture || defaultAvatar} alt="" />
                 <input
