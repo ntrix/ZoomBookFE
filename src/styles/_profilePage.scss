@@ -119,7 +119,7 @@
             }
             input[type='text'],
             textarea {
-                border-radius: 25px;
+                border-radius: 1.5rem;
                 border: none;
                 background-color: $gray;
                 padding: 1em;
@@ -146,7 +146,7 @@
                     width: 450px;
                     height: 220px;
                     border: none;
-                    border-radius: 5px;
+                    border-radius: 0.3rem;
                     background-color: $gray;
                 }
                 input[type='file'] {
@@ -186,7 +186,7 @@
         }
     }
     .user-friends {
-        border-radius: 5px;
+        border-radius: 0.3rem;
         background-color: white;
         box-shadow: 0 0 3px $border-gray;
         margin: 4em 0;
@@ -220,7 +220,7 @@
             figure {
                 @include flex(column, flex-start, center);
                 img {
-                    border-radius: 5px;
+                    border-radius: 0.3rem;
                     width: 100%;
                     object-fit: cover;
                 }

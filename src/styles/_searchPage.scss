@@ -3,7 +3,7 @@
     box-shadow: 0 0 6px $gray;
     padding: 1em;
     width: 40%;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     background-color: white;
     p {
         margin: 3em 0;
@@ -40,7 +40,7 @@
             background-color: $blue;
             color: white;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 0.3rem;
             border: none;
             cursor: pointer;
         }

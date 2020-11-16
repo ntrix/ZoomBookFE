@@ -19,7 +19,7 @@ body {
 .gray-btn {
     background-color: $gray;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     cursor: pointer;
     padding: 0.6em;
     color: black;
@@ -111,7 +111,7 @@ body {
         }
         input {
             border: 1px solid #bdc7d8;
-            border-radius: 5px;
+            border-radius: 0.3rem;
             padding: 8px;
             font-size: 1.2rem;
             margin-bottom: 10px;
@@ -155,7 +155,7 @@ body {
             font-weight: bold;
             font-size: 1.3rem;
             color: white;
-            border-radius: 5px;
+            border-radius: 0.3rem;
             cursor: pointer;
             margin-top: 1em;
         }
@@ -263,7 +263,7 @@ body {
         input {
             padding: 0.5em;
             border: none;
-            border-radius: 5px;
+            border-radius: 0.3rem;
             background-color: white;
             flex: 1;
             margin: 0 0.5rem;
@@ -317,7 +317,7 @@ body {
                 opacity: 0;
                 transition: opacity 150ms ease-in;
                 padding: 10px;
-                border-radius: 10px;
+                border-radius: 0.6em;
                 font-size: 0.8rem;
                 letter-spacing: 1px;
             }
@@ -372,14 +372,14 @@ body {
         position: absolute;
         right: 20px;
         bottom: -235px;
-        border-radius: 10px;
+        border-radius: 0.6em;
         background: white;
         box-shadow: 0 0 3px $border-gray;
         padding: 0.4em;
         display: none;
         min-width: 300px;
         a {
-            border-radius: 10px;
+            border-radius: 0.6em;
             margin: 0.5rem;
         }
         .border {
@@ -389,7 +389,7 @@ body {
         figure {
             display: flex;
             width: 100%;
-            border-radius: 5px;
+            border-radius: 0.3rem;
             padding: 0.4em 0;
             align-items: center;
             cursor: pointer;
@@ -398,7 +398,7 @@ body {
                 width: 4rem;
                 height: 4rem;
                 margin-right: 10px;
-                border-radius: 5px;
+                border-radius: 0.3rem;
             }
             figcaption {
                 flex: 1;
@@ -441,7 +441,7 @@ body {
             }
         }
         div.option {
-            border-radius: 5px;
+            border-radius: 0.3rem;
             cursor: pointer;
             @extend button.option;
         }
@@ -480,7 +480,7 @@ body {
                 font-weight: bold;
                 width: max-content;
                 margin-left: auto;
-                border-radius: 5px;
+                border-radius: 0.3rem;
             }
             div.hide {
                 display: none;
@@ -493,7 +493,7 @@ body {
                 .decline-fr {
                     background-color: $blue;
                     cursor: pointer;
-                    border-radius: 5px;
+                    border-radius: 0.3rem;
                     border: none;
                     padding: 0.6em 1em;
                     font-weight: bold;
@@ -553,7 +553,7 @@ body {
     .create-post {
         padding: 1em;
         box-shadow: 0 0 3px $border-gray;
-        border-radius: 5px;
+        border-radius: 0.3rem;
         background-color: white;
         position: relative;
         div {
@@ -566,7 +566,7 @@ body {
             }
             .text-input {
                 border: none;
-                border-radius: 5px;
+                border-radius: 0.3rem;
                 cursor: pointer;
                 padding: 0.35em 0.7em;
                 background-color: #f0f2f540;
@@ -590,7 +590,7 @@ body {
             font-size: 1.1rem;
             margin: 0 auto;
             width: 50%;
-            border-radius: 5px;
+            border-radius: 0.3rem;
             &:hover {
                 background-color: $gray;
             }
@@ -609,7 +609,7 @@ body {
             background-color: $fb-lightblue;
             padding: 0.5em 0;
             border: 1px solid transparent;
-            border-radius: 5px;
+            border-radius: 0.3rem;
             color: white;
             font-weight: bold;
             margin-top: 1em;
@@ -626,7 +626,7 @@ body {
             margin-bottom: 2em;
             box-shadow: 0 0 3px $border-gray;
             background-color: white;
-            border-radius: 5px;
+            border-radius: 0.3rem;
             position: relative;
             .post-edit-form {
                 input {
@@ -663,7 +663,7 @@ body {
                             background-color: white;
                             border: none;
                             padding: 0.8em 0;
-                            border-radius: 5px;
+                            border-radius: 0.3rem;
                             cursor: pointer;
                             color: $gray-text;
                             font-size: 1.05rem;
@@ -716,7 +716,7 @@ body {
                     display: inline-block;
                     font-size: 0.6rem;
                     padding: 2px 6px;
-                    border-radius: 5px;
+                    border-radius: 0.3rem;
                     position: absolute;
                     top: -25px;
                     opacity: 0;
@@ -759,7 +759,7 @@ body {
                     background-color: transparent;
                     flex: 1;
                     border: 1px solid transparent;
-                    border-radius: 5px;
+                    border-radius: 0.3rem;
                     color: $gray-text;
                     padding: 0.3em 0;
                     margin: 3px;
@@ -798,7 +798,7 @@ body {
                         padding: 0.8em;
                         background-color: $gray;
                         border: 1px solid transparent;
-                        border-radius: 25px;
+                        border-radius: 1.5rem;
                         margin-left: 10px;
                         flex: 1;
                         width: max-content;
@@ -825,7 +825,7 @@ body {
                 input {
                     padding: 0.6em;
                     border: 1px solid transparent;
-                    border-radius: 25px;
+                    border-radius: 1.5rem;
                     background-color: $gray;
                     margin-left: 10px;
                     flex: 1;
@@ -848,7 +848,7 @@ body {
     .find-friends {
         background-color: white;
         padding: 0 1em;
-        border-radius: 5px;
+        border-radius: 0.3rem;
         box-shadow: 0 0 3px $border-gray;
         min-width: 250px;
         article {
@@ -874,7 +874,7 @@ body {
                     cursor: pointer;
                     background-color: $blue;
                     border: 1px solid transparent;
-                    border-radius: 5px;
+                    border-radius: 0.3rem;
                     font-weight: bold;
                     color: white;
                     padding: 0.4em;
@@ -900,7 +900,7 @@ body {
             display: flex;
             align-items: center;
             padding: 0.4em 0.2em;
-            border-radius: 10px;
+            border-radius: 0.6em;
             width: 100%;
             cursor: pointer;
             &:hover {
@@ -932,7 +932,7 @@ body {
         .chat {
             background-color: white;
             box-shadow: 0 0 6px $border-gray;
-            border-radius: 10px;
+            border-radius: 0.6em;
             padding: 1em;
             width: 100%;
             .friend-info {
@@ -965,7 +965,7 @@ body {
                     margin: 0.6em 0.2em;
                     background-color: $blue;
                     color: white;
-                    border-radius: 25px;
+                    border-radius: 1.5rem;
                     align-self: flex-end;
                     max-width: 80%;
                 }
@@ -979,7 +979,7 @@ body {
                 box-shadow: 0 -10px 30px -12px $gray;
                 padding-top: 1em;
                 input {
-                    border-radius: 25px;
+                    border-radius: 1.5rem;
                     background-color: rgb(225, 225, 225);
                     border: none;
                     padding: 0.8em 0.6em;

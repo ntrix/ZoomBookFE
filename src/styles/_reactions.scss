@@ -3,7 +3,7 @@
     top: -55px;
     left: 0;
     border: 1px solid transparent;
-    border-radius: 25px;
+    border-radius: 1.5rem;
     display: flex;
     box-shadow: 0 0 3px #333;
     transition: transform 150ms ease;
@@ -33,7 +33,7 @@
             color: white;
             font-weight: bold;
             font-size: 0.7rem;
-            border-radius: 25px;
+            border-radius: 1.5rem;
             display: none;
         }
     }
