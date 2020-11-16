@@ -1,0 +1,236 @@
+.intro {
+    background-color: white;
+    box-shadow: 0 0 6px $border-gray;
+    .user-images {
+        margin-top: -10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        .cover-photo-container {
+            width: 900px;
+            max-width: 100%;
+            height: 350px;
+            background: rgb(163, 163, 170);
+            background: linear-gradient(
+                0deg,
+                rgba(163, 163, 170, 1) 0%,
+                rgba(240, 242, 245, 1) 35%
+            );
+            overflow: hidden;
+            max-height: 400px;
+            .cover-photo {
+                object-fit: cover;
+                min-width: 100%;
+            }
+        }
+
+        .profile-picture {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: $gray;
+            border: 5px solid white;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+        }
+    }
+    article {
+        margin: 0 auto;
+        padding: 1.5em 0;
+        width: 900px;
+        max-width: 100%;
+        @include flex(column, center, flex-end);
+        & > p:first-of-type {
+            text-align: center;
+            width: 100%;
+            font-size: 1.1rem;
+            margin: 1em 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            width: 100%;
+        }
+        button {
+            @extend .gray-btn;
+            img {
+                margin-right: 10px;
+            }
+        }
+        button.add-friend {
+            background-color: $blue;
+            color: white;
+            &:hover {
+                background-color: $blue;
+            }
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+    }
+    .edit-form.active {
+        display: block;
+    }
+    .edit-form {
+        display: none;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        box-shadow: 0 0 500px 300px $gray;
+        width: 700px;
+        z-index: 100;
+        .errors {
+            padding: 1em;
+            font-size: 1.1rem;
+        }
+        h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid $border-gray;
+            padding: 0.8em;
+            button {
+                border-radius: 50%;
+                font-weight: normal;
+                width: 40px;
+                background-color: $gray;
+                color: black;
+                margin: 0;
+                &:hover {
+                    background-color: rgb(231, 231, 235);
+                }
+            }
+        }
+        & > div {
+            padding: 1em;
+            @include flex(column space-between, center);
+            flex-wrap: wrap;
+            label {
+                font-weight: bold;
+                width: 100%;
+                font-size: 1.2rem;
+                margin-bottom: 1em;
+            }
+            input[type='text'],
+            textarea {
+                border-radius: 25px;
+                border: none;
+                background-color: $gray;
+                padding: 1em;
+                outline: none;
+                font-size: 1.2rem;
+                width: max-content;
+                resize: none;
+            }
+            div {
+                @include flex(row, center, center);
+                width: 100%;
+                position: relative;
+                color: $blue;
+                &:first-child {
+                    padding: 1em 0;
+                }
+                .profile-picture-preview {
+                    width: 150px;
+                    height: 150px;
+                    border: none;
+                    border-radius: 50%;
+                }
+                .cover-photo-preview {
+                    width: 450px;
+                    height: 220px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: $gray;
+                }
+                input[type='file'] {
+                    width: 30px;
+                    opacity: 0;
+                    position: absolute;
+                    right: 0;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: $gray;
+                    }
+                }
+            }
+        }
+        button {
+            width: 96%;
+            margin: 0.8em;
+            color: $blue;
+            background-color: #e7f3ff;
+            &:hover {
+                transform: scale(0.987);
+                background-color: #c4d7e9bb;
+            }
+        }
+    }
+}
+
+.cols-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    .posts {
+        margin-left: 15px;
+        margin-right: 0;
+        @media screen and(max-width:960px) {
+            width: 90%;
+        }
+    }
+    .user-friends {
+        border-radius: 5px;
+        background-color: white;
+        box-shadow: 0 0 3px $border-gray;
+        margin: 4em 0;
+        padding: 1em;
+        width: 350px;
+        @media screen and(max-width:960px) {
+            display: none;
+        }
+        h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            button {
+                @extend .gray-btn;
+                background-color: white !important;
+                color: #1770e6 !important;
+                font-weight: normal !important;
+                &:hover {
+                    background-color: $gray !important;
+                }
+            }
+        }
+        & > div {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 1em;
+            a {
+                display: inline-block;
+            }
+            figure {
+                @include flex(column, flex-start, center);
+                img {
+                    border-radius: 5px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+                figcaption {
+                    margin-top: 0.5em;
+                    font-weight: bold;
+                    word-break: break-all;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+.DS_Store
+.env
+
+npm-debug.log
