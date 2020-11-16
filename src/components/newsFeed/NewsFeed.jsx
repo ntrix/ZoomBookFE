@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Post from '../timelinePage/Post';
-import headers from 'services/headers';
+import TimelinePost from '../timelinePage/TimelinePost';
 import CreateNews from './CreateNews';
 import LoadingSpin from '../common/LoadingSpin';
+import headers from 'services/headers';
 import axios from 'axios';
 
 export default function NewsFeed({ currentUser, socket }) {
@@ -54,7 +54,7 @@ export default function NewsFeed({ currentUser, socket }) {
             <LoadingSpin isLoading={isLoading} />
             <section className="post-list">
                 {posts.map((post) => (
-                    <Post
+                    <TimelinePost
                         key={post._id}
                         post_id={post._id}
                         user={`${post.user.first_name} ${post.user.last_name}`}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Post from '../timelinePage/Post';
+import TimelinePost from '../timelinePage/TimelinePost';
 import headers from 'services/headers';
 import axios from 'axios';
 
@@ -40,7 +40,7 @@ export default function UserPosts({ currentUser, profile_user_id, profile_pictur
             <div className="posts">
                 <section className="post-list">
                     {posts.map((post) => (
-                        <Post
+                        <TimelinePost
                             key={post._id}
                             post_id={post._id}
                             user={`${post.user.first_name} ${post.user.last_name}`}

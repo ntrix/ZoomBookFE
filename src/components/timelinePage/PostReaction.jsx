@@ -1,14 +1,15 @@
 import React from 'react';
-import like from 'images/likeReaction.png';
+import headers from 'services/headers';
+import axios from 'axios';
+
+import like from 'images/like.png';
 import love from 'images/love.png';
 import haha from 'images/haha.png';
 import wow from 'images/wow.png';
 import sad from 'images/sad.png';
 import angry from 'images/angry.png';
-import headers from 'services/headers';
-import axios from 'axios';
 
-export default function PostReactions({ post_id, user_id, setPostReactions }) {
+export default function PostReaction({ post_id, user_id, setPostReactions }) {
     const react = async (type) => {
         const reaction = {
             reaction: type,

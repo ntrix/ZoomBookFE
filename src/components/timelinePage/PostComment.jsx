@@ -3,7 +3,7 @@ import defaultAvatar from 'images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-export default function PostComments({ comments }) {
+export default function PostComment({ comments }) {
     return (
         <div className="comments">
             {comments.map((comment) => (

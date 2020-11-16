@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import headers from 'services/headers';
 import like from 'images/likeReaction.png';
 import love from 'images/love.png';
 import haha from 'images/haha.png';
@@ -14,9 +13,10 @@ import moment from 'moment';
 import EditNewsForm from '../newsFeed/EditNewsForm';
 import PostComments from './PostComments';
 import PostReactions from './PostReactions';
+import headers from 'services/headers';
 import axios from 'axios';
 
-export default function Post({
+export default function TimelinePost({
     post_id,
     user,
     user_id,
