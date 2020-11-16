@@ -4,12 +4,12 @@ import headers from 'services/headers';
 import Logo from 'images/ZoomBook.png';
 import SearchIcon from 'images/search.png';
 import edit from 'images/edit.png';
-import defaultPicture from 'images/defaultAvatar.png';
-import Account from '../components/timeline/Account';
-import Notifications from '../components/timeline/Notifications';
+import defaultAvatar from 'images/defaultAvatar.png';
+import AccountSetting from '../components/headerNav/AccountSetting';
+import Notifications from '../components/headerNav/Notifications';
 import axios from 'axios';
 
-export default function Header({
+export default function HeaderNav({
     username,
     profile_picture,
     user_id,
@@ -66,7 +66,7 @@ export default function Header({
             <ul>
                 <Link to={`/users/${user_id}/profile`}>
                     <li>
-                        <img src={profile_picture || defaultPicture} alt="" />
+                        <img src={profile_picture || defaultAvatar} alt="" />
                     </li>
                     <li>Hi {username}!</li>
                 </Link>
@@ -87,9 +87,9 @@ export default function Header({
                     <span>Account</span>
                 </li>
             </ul>
-            <Account
+            <AccountSetting
                 name={full_name}
-                profile_picture={profile_picture || defaultPicture}
+                profile_picture={profile_picture || defaultAvatar}
                 user_id={user_id}
                 showAccountSettings={showAccountSettings}
                 logOut={logOut}

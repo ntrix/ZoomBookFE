@@ -1,13 +1,13 @@
 import React from 'react';
-import Friends from './Friends';
+import ContactList from './ContactList';
 
-export default function Contacts({ currentUser, socket }) {
+export default function ContactSidebar({ currentUser, socket }) {
     return (
         <section className="contacts-chat">
             <h3>Contacts</h3>
             {currentUser.friends &&
                 currentUser.friends.map((friend) => (
-                    <Friends
+                    <ContactList
                         friend={friend}
                         key={friend._id}
                         socket={socket}

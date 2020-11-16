@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import headers from 'services/headers';
-import Header from './Header';
-import Intro from '../components/profile/Intro';
-import UserPosts from '../components/profile/UserPosts';
-import Friends from '../components/profile/Friends';
+import HeaderNav from './HeaderNav';
+import ProfileBanner from '../components/profilePage/ProfileBanner';
+import UserPosts from '../components/profilePage/UserPosts';
+import Friends from '../components/profilePage/Friends';
 import axios from 'axios';
 
 export default function ProfilePage({ match, currentUser, logOut }) {
@@ -22,7 +22,7 @@ export default function ProfilePage({ match, currentUser, logOut }) {
 
     return (
         <>
-            <Header
+            <HeaderNav
                 username={currentUser.first_name}
                 full_name={`${currentUser.first_name} ${currentUser.last_name}`}
                 user_id={currentUser._id}
@@ -31,7 +31,7 @@ export default function ProfilePage({ match, currentUser, logOut }) {
                 logOut={logOut}
             />
             <section className="profile">
-                <Intro
+                <ProfileBanner
                     first_name={user.first_name || ''}
                     last_name={user.last_name || ''}
                     bio={user.bio}

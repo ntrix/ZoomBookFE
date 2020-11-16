@@ -1,5 +1,5 @@
 import React from 'react';
-import defaultPicture from 'images/defaultAvatar.png';
+import defaultAvatar from 'images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
 
 export default function Friends({ friends }) {
@@ -18,7 +18,7 @@ export default function Friends({ friends }) {
                                 key={`${friend.first_name} ${friend.last_name}`}
                             >
                                 <figure>
-                                    <img src={friend.profile_picture || defaultPicture} alt="" />
+                                    <img src={friend.profile_picture || defaultAvatar} alt="" />
                                     <figcaption>{`${friend.first_name} ${friend.last_name}`}</figcaption>
                                 </figure>
                             </Link>

@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
 import EditProfileForm from './EditProfileForm';
-import defaultPicture from 'images/defaultAvatar.png';
+import defaultAvatar from 'images/defaultAvatar.png';
 import editIcon from 'images/edit.png';
 import headers from 'services/headers';
 import axios from 'axios';
 
 const defaultCover = 'https://res.cloudinary.com/dctcnhecv/image/upload/v1605436933/midb2bmtahameqrsea36.jpg';
 
-export default function Intro({
+export default function ProfileBanner({
     first_name,
     last_name,
     bio,
@@ -50,7 +50,7 @@ export default function Intro({
                 <div className="cover-photo-container">
                     <img src={cover_photo} alt="" className="cover-photo" />
                 </div>
-                <img src={profile_picture || defaultPicture} alt="" className="profile-picture" />
+                <img src={profile_picture || defaultAvatar} alt="" className="profile-picture" />
             </div>
             <article>
                 <h1>{`${first_name} ${last_name}`}</h1>

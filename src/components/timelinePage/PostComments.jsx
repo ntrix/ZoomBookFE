@@ -1,5 +1,5 @@
 import React from 'react';
-import defaultPicture from 'images/defaultAvatar.png';
+import defaultAvatar from 'images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
@@ -9,7 +9,7 @@ export default function PostComments({ comments }) {
             {comments.map((comment) => (
                 <figure key={comment._id}>
                     <Link to={`/users/${comment.user._id}/profile`}>
-                        <img src={comment.user.profile_picture || defaultPicture} alt="" />
+                        <img src={comment.user.profile_picture || defaultAvatar} alt="" />
                     </Link>
                     <figcaption>
                         <Link to={`/users/${comment.user._id}/profile`}>

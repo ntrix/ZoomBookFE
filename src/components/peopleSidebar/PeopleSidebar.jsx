@@ -3,7 +3,7 @@ import Person from './Person';
 import headers from 'services/headers';
 import axios from 'axios';
 
-export default function PeopleNearBy({ currentUser }) {
+export default function PeopleSidebar({ currentUser }) {
     const [people, setPeople] = useState([]);
 
     useEffect(() => {

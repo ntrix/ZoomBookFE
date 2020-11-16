@@ -8,7 +8,7 @@ import angry from 'images/angry.png';
 import headers from 'services/headers';
 import axios from 'axios';
 
-export default function Reactions({ post_id, user_id, setPostReactions }) {
+export default function PostReactions({ post_id, user_id, setPostReactions }) {
     const react = async (type) => {
         const reaction = {
             reaction: type,

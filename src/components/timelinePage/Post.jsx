@@ -1,19 +1,19 @@
 import React, { useState, useRef } from 'react';
 import headers from 'services/headers';
-import PostComments from './PostComments';
-import Reactions from './Reactions';
 import like from 'images/likeReaction.png';
 import love from 'images/love.png';
 import haha from 'images/haha.png';
 import wow from 'images/wow.png';
 import sad from 'images/sad.png';
 import angry from 'images/angry.png';
-import defaultPicture from 'images/defaultAvatar.png';
+import defaultAvatar from 'images/defaultAvatar.png';
 import pen from 'images/pen.png';
 import deleteIcon from 'images/delete.png';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import EditPostForm from './EditPostForm';
+import EditNewsForm from '../newsFeed/EditNewsForm';
+import PostComments from './PostComments';
+import PostReactions from './PostReactions';
 import axios from 'axios';
 
 export default function Post({
@@ -110,7 +110,7 @@ export default function Post({
             )}
             <Link to={`/users/${user_id}/profile`}>
                 <figure className="user-info">
-                    <img src={profile_picture || defaultPicture} alt="" />
+                    <img src={profile_picture || defaultAvatar} alt="" />
                     <figcaption>
                         <p className="username">{user}</p>
                         <p className="post-date">
@@ -120,7 +120,7 @@ export default function Post({
                 </figure>
             </Link>
             {currentUserID === user_id && (
-                <EditPostForm
+                <EditNewsForm
                     oldContent={content}
                     showEditForm={showEditForm}
                     setShowEditForm={setShowEditForm}
@@ -151,7 +151,7 @@ export default function Post({
             </div>
             <div className="like-comment-buttons">
                 <div className="like" id="like-btn">
-                    <Reactions
+                    <PostReactions
                         post_id={post_id}
                         user_id={currentUser._id}
                         setPostReactions={setPostReactions}
@@ -164,7 +164,7 @@ export default function Post({
             </div>
             <PostComments comments={postComments} />
             <form onSubmit={(e) => createComment(e)}>
-                <img src={currentUser.profile_picture || defaultPicture} alt="" />
+                <img src={currentUser.profile_picture || defaultAvatar} alt="" />
                 <input
                     type="text"
                     required

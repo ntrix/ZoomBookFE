@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import headers from 'services/headers';
 import axios from 'axios';
 
-export default function EditPostForm({
+export default function EditNewsForm({
     oldContent,
     showEditForm,
     setShowEditForm,

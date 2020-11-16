@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import headers from 'services/headers';
-import Header from './Header';
-import PostList from '../components/timeline/PostList';
-import PeopleNearBy from '../components/peopleSidebar/PeopleNearBy';
-import Contacts from '../components/chatSidebar/Contacts';
+import HeaderNav from './HeaderNav';
+import NewsFeed from '../components/newsFeed/NewsFeed';
+import PeopleSidebar from '../components/peopleSidebar/PeopleSidebar';
+import ContactSidebar from '../components/contactSidebar/ContactSidebar';
 import io from 'socket.io-client';
 import axios from 'axios';
 
-export default function Timeline({ match, logOut }) {
+export default function TimelinePage({ match, logOut }) {
     const [user, setUser] = useState({});
     useEffect(() => {
         const getUser = async () => {
@@ -36,7 +36,7 @@ export default function Timeline({ match, logOut }) {
 
     return (
         <>
-            <Header
+            <HeaderNav
                 full_name={`${user.first_name} ${user.last_name}`}
                 username={user.first_name}
                 profile_picture={user.profile_picture}
@@ -47,11 +47,11 @@ export default function Timeline({ match, logOut }) {
             <div className="container">
                 <section className="groups">online users in Video Chat room</section>
                 <section className="posts">
-                    <PostList currentUser={user} socket={socket} />
+                    <NewsFeed currentUser={user} socket={socket} />
                 </section>
                 <section className="right-col">
-                    <PeopleNearBy currentUser={user} />
-                    <Contacts currentUser={user} socket={socket} />
+                    <PeopleSidebar currentUser={user} />
+                    <ContactSidebar currentUser={user} socket={socket} />
                 </section>
             </div>
         </>

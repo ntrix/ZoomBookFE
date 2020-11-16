@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import headers from 'services/headers';
-import defaultPicture from 'images/defaultAvatar.png';
+import defaultAvatar from 'images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -27,7 +27,7 @@ export default function Person({
     return (
         <article>
             <Link to={`/users/${person_id}/profile`}>
-                <img src={profile_picture || defaultPicture} alt="" />
+                <img src={profile_picture || defaultAvatar} alt="" />
             </Link>
             <div>
                 <Link to={`/users/${person_id}/profile`}>

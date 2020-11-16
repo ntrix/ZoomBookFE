@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Post from '../timeline/Post';
+import Post from '../timelinePage/Post';
 import headers from 'services/headers';
 import axios from 'axios';
 

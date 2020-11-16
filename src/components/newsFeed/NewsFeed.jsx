@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Post from './Post';
+import Post from '../timelinePage/Post';
 import headers from 'services/headers';
-import CreatePost from './CreatePost';
+import CreateNews from './CreateNews';
 import LoadingSpin from '../common/LoadingSpin';
 import axios from 'axios';
 
-export default function PostList({ currentUser, socket }) {
+export default function NewsFeed({ currentUser, socket }) {
     const [posts, setPosts] = useState([]);
     const [isLoading, showLoading] = useState(true);
     const friends = currentUser.friends && currentUser.friends.map((friend) => friend._id);
@@ -44,7 +44,7 @@ export default function PostList({ currentUser, socket }) {
 
     return (
         <>
-            <CreatePost
+            <CreateNews
                 username={currentUser.first_name}
                 profile_picture={currentUser.profile_picture}
                 user_id={currentUser._id}

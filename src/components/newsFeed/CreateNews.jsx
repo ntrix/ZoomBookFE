@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import headers from 'services/headers';
 import videoChat from 'images/videoChat.png';
 import addPhoto from 'images/addPhoto.png';
-import defaultPicture from 'images/defaultAvatar.png';
+import defaultAvatar from 'images/defaultAvatar.png';
 import axios from 'axios';
 
-export default function CreatePost({ username, profile_picture, user_id, setPosts, socket }) {
+export default function CreateNews({ username, profile_picture, user_id, setPosts, socket }) {
     const [content, setContent] = useState('');
     const [image, setImage] = useState('');
     const [imagePreview, setImagePreview] = useState('');
@@ -49,7 +49,7 @@ export default function CreatePost({ username, profile_picture, user_id, setPost
     return (
         <form className="create-post" onSubmit={(e) => postCreate(e)}>
             <div>
-                <img src={profile_picture || defaultPicture} alt="" className="profile-image" />
+                <img src={profile_picture || defaultAvatar} alt="" className="profile-image" />
                 <input
                     name="content"
                     onChange={(e) => setContent(e.target.value)}

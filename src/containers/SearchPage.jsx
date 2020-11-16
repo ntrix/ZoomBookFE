@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header';
-import defaultPicture from 'images/defaultAvatar.png';
+import HeaderNav from './HeaderNav';
+import defaultAvatar from 'images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
 
 export default function SearchPage({ currentUser, logOut, location }) {
@@ -9,7 +9,7 @@ export default function SearchPage({ currentUser, logOut, location }) {
 
     return (
         <>
-            <Header
+            <HeaderNav
                 username={currentUser.first_name}
                 profile_picture={currentUser.profile_picture}
                 user_id={currentUser._id}
@@ -18,12 +18,12 @@ export default function SearchPage({ currentUser, logOut, location }) {
                 logOut={logOut}
             />
             <section className="search-people">
-                <h2>People</h2>
+                <h2>Search results</h2>
                 {people.length > 0 ? (
                     people.map((person) => (
                         <figure key={person._id}>
                             <Link to={`/users/${person._id}/profile`}>
-                                <img src={person.profile_picture || defaultPicture} alt="" />
+                                <img src={person.profile_picture || defaultAvatar} alt="" />
                                 <figcaption>{`${person.first_name} ${person.last_name}`}</figcaption>
                             </Link>
                             {friendsID && friendsID.includes(person._id) ? (
@@ -38,7 +38,7 @@ export default function SearchPage({ currentUser, logOut, location }) {
                         </figure>
                     ))
                 ) : (
-                    <p>No user found! Try again with another name?</p>
+                    <p>No user found! Try again with another filter?</p>
                 )}
             </section>
         </>

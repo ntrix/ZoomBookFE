@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './styles/style.scss';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import LoginPage from './containers/LoginPage';
-import Timeline from './containers/Timeline';
+import TimelinePage from './containers/TimelinePage';
 import ProfilePage from './containers/ProfilePage';
 import SearchPage from './containers/SearchPage';
-import headers from './services/headers';
 import AuthRoute from './containers/AuthRoute';
+import headers from './services/headers';
 import axios from 'axios';
 
 function App() {
@@ -52,7 +52,7 @@ function App() {
                 <AuthRoute
                     exact
                     path={'/users/:id/timeline'}
-                    render={(props) => <Timeline {...props} logOut={logOut} />}
+                    render={(props) => <TimelinePage {...props} logOut={logOut} />}
                 />
                 <AuthRoute
                     exact

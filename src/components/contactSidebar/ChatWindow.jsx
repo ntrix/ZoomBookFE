@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import defaultPicture from 'images/defaultAvatar.png';
+import defaultAvatar from 'images/defaultAvatar.png';
 
 export default function ChatWindow({
     showChatWindow,
@@ -52,7 +52,7 @@ export default function ChatWindow({
             <div className={showChatWindow ? 'chat open' : 'chat close'}>
                 <div className="friend-info">
                     <figure>
-                        <img src={friend.profile_picture || defaultPicture} alt="" />
+                        <img src={friend.profile_picture || defaultAvatar} alt="" />
                         <figcaption>
                             <p>{`${friend.first_name} ${friend.last_name}`}</p>
                             <p>{active && 'Active Now'}</p>
