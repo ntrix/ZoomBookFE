@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
 import defaultPicture from 'images/defaultAvatar.png';
-import ChatBubble from './ChatBubble';
+import ChatWindow from './ChatWindow';
 
-export default function Friend({ friend, socket, currentUserID }) {
-    const [showChatBubble, setShowChatBubble] = useState(false);
+export default function Friends({ friend, socket, currentUserID }) {
+    const [showChatWindow, setShowChatWindow] = useState(false);
     const inputRef = useRef();
     const openChat = () => {
-        setShowChatBubble(!showChatBubble);
-        if (!showChatBubble) {
+        setShowChatWindow(!showChatWindow);
+        if (!showChatWindow) {
             inputRef.current.focus();
             inputRef.current.scrollIntoView({ behavior: 'smooth' });
         }
@@ -18,10 +18,10 @@ export default function Friend({ friend, socket, currentUserID }) {
                 <img src={friend.profile_picture || defaultPicture} alt="" />
                 <figcaption>{`${friend.first_name} ${friend.last_name}`}</figcaption>
             </figure>
-            <ChatBubble
+            <ChatWindow
                 friend={friend}
-                setShowChatBubble={setShowChatBubble}
-                showChatBubble={showChatBubble}
+                setShowChatWindow={setShowChatWindow}
+                showChatWindow={showChatWindow}
                 inputRef={inputRef}
                 socket={socket}
                 currentUserID={currentUserID}

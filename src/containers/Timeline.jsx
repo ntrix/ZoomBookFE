@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import headers from 'services/headers';
 import Header from './Header';
 import PostList from '../components/timeline/PostList';
-import FindPeople from '../components/friends-side-bar/FindPeople';
-import Contacts from '../components/chat-side-bar/Contacts';
+import PeopleNearBy from '../components/peopleSidebar/PeopleNearBy';
+import Contacts from '../components/chatSidebar/Contacts';
 import io from 'socket.io-client';
 import axios from 'axios';
 
@@ -50,7 +50,7 @@ export default function Timeline({ match, logOut }) {
                     <PostList currentUser={user} socket={socket} />
                 </section>
                 <section className="right-col">
-                    <FindPeople currentUser={user} />
+                    <PeopleNearBy currentUser={user} />
                     <Contacts currentUser={user} socket={socket} />
                 </section>
             </div>

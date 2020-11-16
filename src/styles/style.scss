@@ -3,6 +3,7 @@
 @import './reactions';
 @import './profilePage';
 @import './searchPage';
+@import './loadingSpin';
 
 body {
     background-color: $gray;
@@ -510,34 +511,6 @@ body {
 .container {
     display: flex;
     justify-content: space-around;
-}
-
-.loader {
-    @include flex(row, center, center);
-    flex-wrap: wrap;
-    margin-top: 6em;
-    animation: triangleRotate 1s linear infinite;
-    & > div:not(.dot) {
-        @include flex(row, center, center);
-        flex-basis: 100%;
-        margin-bottom: 10px;
-    }
-    .dot {
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background-color: $blue;
-        margin-right: 15px;
-    }
-}
-
-@keyframes triangleRotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 .posts {

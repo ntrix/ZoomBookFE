@@ -3,7 +3,7 @@ import Header from './Header';
 import defaultPicture from 'images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
 
-export default function SearchPeople({ currentUser, logOut, location }) {
+export default function SearchPage({ currentUser, logOut, location }) {
     const people = location.state.searchResult;
     const friendsID = currentUser.friends && currentUser.friends.map((friend) => friend._id);
 

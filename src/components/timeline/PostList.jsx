@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Post from './Post';
 import headers from 'services/headers';
 import CreatePost from './CreatePost';
-import Loader from './Loader';
+import LoadingSpin from '../common/LoadingSpin';
 import axios from 'axios';
 
 export default function PostList({ currentUser, socket }) {
     const [posts, setPosts] = useState([]);
-    const [showLoader, setShowLoader] = useState(true);
+    const [isLoading, showLoading] = useState(true);
     const friends = currentUser.friends && currentUser.friends.map((friend) => friend._id);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function PostList({ currentUser, socket }) {
                 signal,
             });
             setPosts(data);
-            setShowLoader(!showLoader);
+            showLoading(!isLoading);
             socket.on('new_post', (post) => {
                 if (post.user._id !== currentUser._id && friends.includes(post.user._id)) {
                     setPosts((posts) => [post, ...posts]);
@@ -51,7 +51,7 @@ export default function PostList({ currentUser, socket }) {
                 setPosts={setPosts}
                 socket={socket}
             />
-            <Loader showLoader={showLoader} />
+            <LoadingSpin isLoading={isLoading} />
             <section className="post-list">
                 {posts.map((post) => (
                     <Post

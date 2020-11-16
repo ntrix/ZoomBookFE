@@ -1,11 +1,11 @@
 import React from 'react';
-import LogInForm from '../components/LogInPage/LogInForm';
-import SignUpForm from '../components/LogInPage/SignUpForm';
+import LoginForm from '../components/loginPage/LoginForm';
+import SignUpForm from '../components/loginPage/SignUpForm';
 import { Redirect } from 'react-router-dom';
 
 import Logo from 'images/ZoomBook.png';
 
-export default function LogInHeader({ authenticated }) {
+export default function LoginHeader({ authenticated }) {
     if (authenticated.message) {
         return <Redirect to={`/users/${authenticated.user_id}/timeline`} />;
     }
@@ -15,7 +15,7 @@ export default function LogInHeader({ authenticated }) {
             <header className="log-in-page-header">
                 <img src={Logo} alt="" />
                 <h1>ZoomBook</h1>
-                <LogInForm />
+                <LoginForm />
             </header>
             <section className="sign-up-map-container">
                 <SignUpForm />

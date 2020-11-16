@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-function PrivateRoute({ render: Component, ...props }) {
+function AuthRoute({ render: Component, ...props }) {
     const [authenticated, setAuthenticated] = useState(null);
     useEffect(() => {
         const user = localStorage.getItem('user');
@@ -24,4 +24,4 @@ function PrivateRoute({ render: Component, ...props }) {
     );
 }
 
-export default PrivateRoute;
+export default AuthRoute;

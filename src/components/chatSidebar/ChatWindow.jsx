@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import defaultPicture from 'images/defaultAvatar.png';
 
-export default function ChatBubble({
-    showChatBubble,
-    setShowChatBubble,
+export default function ChatWindow({
+    showChatWindow,
+    setShowChatWindow,
     friend,
     inputRef,
     socket,
@@ -38,18 +38,18 @@ export default function ChatBubble({
             ) {
                 setChatMessages((prevState) => prevState.concat(message));
                 msgsRef.current.scrollTop = msgsRef.current.scrollHeight;
-                setShowChatBubble(true);
+                setShowChatWindow(true);
             }
         });
 
         return () => {
             socket.off('send_message');
         };
-    }, [socket, setShowChatBubble, currentUserID, friend._id]);
+    }, [socket, setShowChatWindow, currentUserID, friend._id]);
 
     if (friend) {
         return (
-            <div className={showChatBubble ? 'chat open' : 'chat close'}>
+            <div className={showChatWindow ? 'chat open' : 'chat close'}>
                 <div className="friend-info">
                     <figure>
                         <img src={friend.profile_picture || defaultPicture} alt="" />
@@ -58,7 +58,7 @@ export default function ChatBubble({
                             <p>{active && 'Active Now'}</p>
                         </figcaption>
                     </figure>
-                    <button type="button" onClick={() => setShowChatBubble(!showChatBubble)}>
+                    <button type="button" onClick={() => setShowChatWindow(!showChatWindow)}>
                         X
                     </button>
                 </div>

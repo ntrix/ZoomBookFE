@@ -3,7 +3,7 @@ import Person from './Person';
 import headers from 'services/headers';
 import axios from 'axios';
 
-export default function FindPeople({ currentUser }) {
+export default function PeopleNearBy({ currentUser }) {
     const [people, setPeople] = useState([]);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export default function FindPeople({ currentUser }) {
 
     return (
         <section className="find-friends">
-            <h3>Find people near you</h3>
+            <h3>Find people near by</h3>
             {people.map((person) => (
                 <Person
                     key={person._id}

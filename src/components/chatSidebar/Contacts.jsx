@@ -1,5 +1,5 @@
 import React from 'react';
-import Friend from './Friend';
+import Friends from './Friends';
 
 export default function Contacts({ currentUser, socket }) {
     return (
@@ -7,7 +7,7 @@ export default function Contacts({ currentUser, socket }) {
             <h3>Contacts</h3>
             {currentUser.friends &&
                 currentUser.friends.map((friend) => (
-                    <Friend
+                    <Friends
                         friend={friend}
                         key={friend._id}
                         socket={socket}

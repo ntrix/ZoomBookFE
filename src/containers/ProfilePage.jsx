@@ -6,7 +6,7 @@ import UserPosts from '../components/profile/UserPosts';
 import Friends from '../components/profile/Friends';
 import axios from 'axios';
 
-export default function Profile({ match, currentUser, logOut }) {
+export default function ProfilePage({ match, currentUser, logOut }) {
     const [user, setUser] = useState({});
 
     useEffect(() => {

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './styles/style.scss';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import LogInPage from './containers/LogInPage';
+import LoginPage from './containers/LoginPage';
 import Timeline from './containers/Timeline';
-import Profile from './containers/Profile';
-import SearchPeople from './containers/SearchPeople';
+import ProfilePage from './containers/ProfilePage';
+import SearchPage from './containers/SearchPage';
 import headers from './services/headers';
-import PrivateRoute from './containers/PrivateRoute';
+import AuthRoute from './containers/AuthRoute';
 import axios from 'axios';
 
 function App() {
@@ -47,22 +47,22 @@ function App() {
                 <Route
                     path="/users/login"
                     exact
-                    render={(props) => <LogInPage {...props} authenticated={authenticated} />}
+                    render={(props) => <LoginPage {...props} authenticated={authenticated} />}
                 />
-                <PrivateRoute
+                <AuthRoute
                     exact
                     path={'/users/:id/timeline'}
                     render={(props) => <Timeline {...props} logOut={logOut} />}
                 />
-                <PrivateRoute
+                <AuthRoute
                     exact
                     path={'/users/:id/profile'}
-                    render={(props) => (<Profile {...props} currentUser={loggedInUser} logOut={logOut} />)}
+                    render={(props) => (<ProfilePage {...props} currentUser={loggedInUser} logOut={logOut} />)}
                 />
-                <PrivateRoute
+                <AuthRoute
                     path="/users/:id/search"
                     exact
-                    render={(props) => (<SearchPeople {...props} currentUser={loggedInUser} logOut={logOut} />)}
+                    render={(props) => (<SearchPage {...props} currentUser={loggedInUser} logOut={logOut} />)}
                 />
             </Switch>
         </Router>
