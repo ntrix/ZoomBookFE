@@ -389,18 +389,16 @@ body {
         figure {
             display: flex;
             width: 100%;
-            border-radius: 3px;
+            border-radius: 5px;
             padding: 0.4em 0;
             align-items: center;
             cursor: pointer;
-            &:hover {
-                background-color: $gray;
-            }
             img {
                 @extend .placeholder-image;
-                width: 60px;
-                height: 60px;
+                width: 4rem;
+                height: 4rem;
                 margin-right: 10px;
+                border-radius: 5px;
             }
             figcaption {
                 flex: 1;
@@ -446,9 +444,6 @@ body {
             border-radius: 5px;
             cursor: pointer;
             @extend button.option;
-            &:hover {
-                background-color: $gray;
-            }
         }
     }
     .notifications-modal.active {
