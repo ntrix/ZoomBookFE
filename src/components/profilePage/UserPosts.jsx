@@ -7,22 +7,22 @@ export default function UserPosts({ currentUser, profile_user_id, profile_pictur
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        const abortCon = new AbortController();
-        const signal = abortCon.signal;
+        const abortControl = new AbortController();
+        const { signal } = abortControl;
 
         const getUserPosts = async () => {
-            const { data } = await axios(`/api/users/${profile_user_id}/profile/posts`, {
+            const { data: UserPosts } = await axios(`/api/users/${profile_user_id}/profile/posts`, {
                 mode: 'cors',
                 headers: headers(),
                 signal,
             });
-            setPosts(data);
+            setPosts(UserPosts);
         };
         if (currentUser._id) {
             getUserPosts();
         }
         return function () {
-            abortCon.abort();
+            abortControl.abort();
         };
     }, [currentUser._id, profile_user_id]);
 
