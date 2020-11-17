@@ -17,6 +17,7 @@ export default function SearchResult({ currentUser, location }) {
                                 <img src={person.profile_picture || defaultAvatar} alt="" />
                                 <figcaption>{`${person.first_name} ${person.last_name}`}</figcaption>
                             </Link>
+
                             {friendsID && friendsID.includes(person._id) ? (
                                 <div className="action">Friend</div>
                             ) : (
@@ -29,7 +30,7 @@ export default function SearchResult({ currentUser, location }) {
                         </figure>
                     ))
                 ) : (
-                    <p>No user found! Try again with another filter?</p>
+                    <p>User not found! Try again with another filter?</p>
                 )}
             </section>
         </>

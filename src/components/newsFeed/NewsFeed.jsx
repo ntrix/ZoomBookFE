@@ -51,7 +51,9 @@ export default function NewsFeed({ currentUser, socket }) {
                 setPosts={setPosts}
                 socket={socket}
             />
+
             <LoadingSpin isLoading={isLoading} />
+
             <section className="post-list">
                 {posts.map((post) => (
                     <TimelinePost

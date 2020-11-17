@@ -11,12 +11,15 @@ export default function PostComment({ comments }) {
                     <Link to={`/users/${comment.user._id}/profile`}>
                         <img src={comment.user.profile_picture || defaultAvatar} alt="" />
                     </Link>
+
                     <figcaption>
                         <Link to={`/users/${comment.user._id}/profile`}>
                             <p className="username">{`${comment.user.first_name} ${comment.user.last_name}`}</p>
                         </Link>
+
                         <p className="content">{comment.content}</p>
                     </figcaption>
+
                     <p className="timestamp">{moment(new Date(comment.timestamp)).fromNow()}</p>
                 </figure>
             ))}

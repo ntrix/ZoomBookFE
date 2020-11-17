@@ -34,6 +34,7 @@ export default function EditNewsForm({
                     required
                     onChange={(e) => setContent(e.target.value)}
                 />
+
                 <button>Edit Post</button>
             </form>
         );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+
 import axios from 'axios';
 
 export default function SignUpForm() {
@@ -73,6 +74,7 @@ export default function SignUpForm() {
         <form className="sign-up-form" onSubmit={(e) => signUp(e)}>
             <h1>Create an account</h1>
             <p>It's quick and easy.</p>
+
             <div className="names">
                 <input
                     type="text"
@@ -81,6 +83,7 @@ export default function SignUpForm() {
                     placeholder="First name"
                     onChange={(e) => setFirst_name(e.target.value)}
                 />
+
                 <input
                     type="text"
                     name="last_name"
@@ -89,6 +92,7 @@ export default function SignUpForm() {
                     onChange={(e) => setLast_name(e.target.value)}
                 />
             </div>
+
             <input
                 type="email"
                 name="email"
@@ -96,6 +100,7 @@ export default function SignUpForm() {
                 placeholder="Email address *"
                 onChange={(e) => setEmail(e.target.value)}
             />
+
             <input
                 type="password"
                 name="password"
@@ -104,6 +109,7 @@ export default function SignUpForm() {
                 placeholder="New password *"
                 onChange={(e) => setPassword(e.target.value)}
             />
+
             <input
                 type="password"
                 name="password_confirmation"
@@ -112,7 +118,9 @@ export default function SignUpForm() {
                 placeholder="Confirm password *"
                 onChange={(e) => setPassword_confirmation(e.target.value)}
             />
+
             <p className="p-titles">Birthday</p>
+
             <div className="birthday-selects">
                 <select name="day" onChange={(e) => setDay(e.target.value)}>
                     { days }
@@ -124,7 +132,9 @@ export default function SignUpForm() {
                     { years }
                 </select>
             </div>
+
             <p className="p-titles">Gender *</p>
+
             <div className="gender-choices">
                 <div>
                     <input
@@ -135,6 +145,7 @@ export default function SignUpForm() {
                     />
                     <label htmlFor="gender">Female</label>
                 </div>
+
                 <div>
                     <input
                         type="radio"
@@ -144,6 +155,7 @@ export default function SignUpForm() {
                     />
                     <label htmlFor="gender">Male</label>
                 </div>
+
                 <div>
                     <input
                         type="radio"
@@ -154,6 +166,7 @@ export default function SignUpForm() {
                     <label htmlFor="gender">Don't tell</label>
                 </div>
             </div>
+
             {errors.length > 0 && (
                 <ul className="form-errors">
                     {errors.map((error) => (
@@ -161,6 +174,7 @@ export default function SignUpForm() {
                     ))}
                 </ul>
             )}
+
             <button>{btnText}</button>
         </form>
     );

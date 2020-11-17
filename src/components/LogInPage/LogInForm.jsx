@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+
 import axios from 'axios';
 
 export default function LoginForm() {
@@ -39,6 +40,7 @@ export default function LoginForm() {
                     <label htmlFor="email">Email</label>
                     <input type="email" required onChange={(e) => setEmail(e.target.value)} />
                 </div>
+
                 <div>
                     <label htmlFor="password">Password</label>
                     <input
@@ -49,8 +51,10 @@ export default function LoginForm() {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
+
                 <button>Log in</button>
             </form>
+
             {errors && <p>Password and/or email are incorrect.</p>}
         </div>
     );

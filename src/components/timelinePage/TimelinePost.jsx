@@ -107,9 +107,11 @@ export default function TimelinePost({
             ) : (
                 ''
             )}
+
             <Link to={`/users/${user_id}/profile`}>
                 <figure className="user-info">
                     <img src={profile_picture || defaultAvatar} alt="" />
+
                     <figcaption>
                         <p className="username">{user}</p>
                         <p className="post-date">
@@ -118,6 +120,7 @@ export default function TimelinePost({
                     </figcaption>
                 </figure>
             </Link>
+
             {currentUserID === user_id && (
                 <EditNewsForm
                     oldContent={content}
@@ -127,10 +130,12 @@ export default function TimelinePost({
                     setPostContent={setPostContent}
                 />
             )}
+
             <figure className="post-content" onClick={() => setShowPostActions(false)}>
                 {!showEditForm && <figcaption>{postContent}</figcaption>}
                 <img src={image || ''} alt="" className="post-img" />
             </figure>
+
             <div className="reactions-comment-count">
                 <ul className="reactions">
                     {sortedReactionCounts.map(
@@ -144,10 +149,12 @@ export default function TimelinePost({
                     )}
                     <li>{postReactions.length > 0 ? postReactions.length : ''}</li>
                 </ul>
+
                 <p className="comment-count">
                     {commentsCount === 1 ? `${commentsCount} comment` : `${commentsCount} comments`}
                 </p>
             </div>
+
             <div className="like-comment-buttons">
                 <div className="like" id="like-btn">
                     <PostReaction
@@ -155,15 +162,19 @@ export default function TimelinePost({
                         user_id={currentUser._id}
                         setPostReactions={setPostReactions}
                     />
-                    <i></i>Like
+                    <i> </i>Like
                 </div>
+
                 <button className="comment" onClick={focusCommentInput}>
-                    <i></i>Comment
+                    <i> </i>Comment
                 </button>
             </div>
+
             <PostComment comments={postComments} />
+
             <form onSubmit={(e) => createComment(e)}>
                 <img src={currentUser.profile_picture || defaultAvatar} alt="" />
+
                 <input
                     type="text"
                     required
@@ -172,6 +183,7 @@ export default function TimelinePost({
                     value={comment}
                     ref={commentInput}
                 />
+
                 <button>Comment</button>
             </form>
         </article>
