@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import Person from './Person';
 import headers from 'services/headers';
 import axios from 'axios';
@@ -22,6 +23,7 @@ export default function PeopleSidebar({ currentUser }) {
     return (
         <section className="find-friends">
             <h3>Find people near by</h3>
+
             {people.map((person) => (
                 <Person
                     key={person._id}

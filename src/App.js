@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+
 import './styles/style.scss';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import LoginPage from './containers/LoginPage';
 import TimelinePage from './containers/TimelinePage';
 import ProfilePage from './containers/ProfilePage';
@@ -39,7 +40,7 @@ function App() {
     };
 
     return (
-        <Router>
+        <BrowserRouter>
             <Switch>
                 <Route path="/" exact>
                     <Redirect to={'/users/login'} />
@@ -65,7 +66,7 @@ function App() {
                     render={(props) => (<SearchPage {...props} currentUser={loggedInUser} logOut={logOut} />)}
                 />
             </Switch>
-        </Router>
+        </BrowserRouter>
     );
 }
 

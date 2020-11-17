@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+
 import defaultAvatar from 'images/defaultAvatar.png';
 
 export default function ChatWindow({
@@ -32,10 +33,7 @@ export default function ChatWindow({
     useEffect(() => {
         socket.on('new_message', (message) => {
             console.log(message);
-            if (
-                message.chatIdentifier.includes(friend._id) &&
-                message.chatIdentifier.includes(currentUserID)
-            ) {
+            if (message.chatIdentifier.includes(friend._id) && message.chatIdentifier.includes(currentUserID)) {
                 setChatMessages((prevState) => prevState.concat(message));
                 msgsRef.current.scrollTop = msgsRef.current.scrollHeight;
                 setShowChatWindow(true);
@@ -47,44 +45,39 @@ export default function ChatWindow({
         };
     }, [socket, setShowChatWindow, currentUserID, friend._id]);
 
-    if (friend) {
-        return (
-            <div className={showChatWindow ? 'chat open' : 'chat close'}>
-                <div className="friend-info">
-                    <figure>
-                        <img src={friend.profile_picture || defaultAvatar} alt="" />
-                        <figcaption>
-                            <p>{`${friend.first_name} ${friend.last_name}`}</p>
-                            <p>{active && 'Active Now'}</p>
-                        </figcaption>
-                    </figure>
-                    <button type="button" onClick={() => setShowChatWindow(!showChatWindow)}>
-                        X
-                    </button>
-                </div>
-                <div className="messages" ref={msgsRef}>
-                    {chatMessages.map((msg, index) => (
-                        <p
-                            key={index}
-                            className={msg.id !== currentUserID ? 'message' : 'message other'}
-                        >
-                            {msg.message}
-                        </p>
-                    ))}
-                </div>
-                <form onSubmit={(e) => sendMessage(e)}>
-                    <input
-                        type="text"
-                        placeholder="Aa"
-                        ref={inputRef}
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        minLength="1"
-                    />
-                    <button></button>
-                </form>
+    return friend? (
+        <div className={showChatWindow ? 'chat open' : 'chat close'}>
+            <div className="friend-info">
+                <figure>
+                    <img src={friend.profile_picture || defaultAvatar} alt="" />
+                    <figcaption>
+                        <p>{`${friend.first_name} ${friend.last_name}`}</p>
+                        <p>{active && 'Active Now'}</p>
+                    </figcaption>
+                </figure>
+
+                <button type="button" onClick={() => setShowChatWindow(!showChatWindow)}>Close&nbsp;
+                </button>
             </div>
-        );
-    }
-    return;
+
+            <div className="messages" ref={msgsRef}>
+                {chatMessages.map((msg, index) => (
+                    <p key={index} className={msg.id !== currentUserID ? 'message' : 'message other'}>
+                        {msg.message}
+                    </p>
+                ))}
+            </div>
+
+            <form onSubmit={(e) => sendMessage(e)}>
+                <input
+                    type="text"
+                    placeholder="Aa"
+                    ref={inputRef}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    minLength="1"
+                />
+            </form>
+        </div>
+    ): <></>;
 }

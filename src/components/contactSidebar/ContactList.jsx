@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+
 import defaultAvatar from 'images/defaultAvatar.png';
 import ChatWindow from './ChatWindow';
 
@@ -18,6 +19,7 @@ export default function ContactList({ friend, socket, currentUserID }) {
                 <img src={friend.profile_picture || defaultAvatar} alt="" />
                 <figcaption>{`${friend.first_name} ${friend.last_name}`}</figcaption>
             </figure>
+
             <ChatWindow
                 friend={friend}
                 setShowChatWindow={setShowChatWindow}

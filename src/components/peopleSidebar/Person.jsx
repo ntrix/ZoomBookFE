@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import headers from 'services/headers';
-import defaultAvatar from 'images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
+
+import headers from 'services/headers';
 import axios from 'axios';
+
+import defaultAvatar from 'images/defaultAvatar.png';
 
 export default function Person({
     current_user_id,
@@ -29,10 +31,12 @@ export default function Person({
             <Link to={`/users/${person_id}/profile`}>
                 <img src={profile_picture || defaultAvatar} alt="" />
             </Link>
+
             <div>
                 <Link to={`/users/${person_id}/profile`}>
                     <p>{`${first_name} ${last_name}`}</p>
                 </Link>
+
                 <button type="button" onClick={sendFriendRequest}>
                     {requestStatus || btnText}
                 </button>

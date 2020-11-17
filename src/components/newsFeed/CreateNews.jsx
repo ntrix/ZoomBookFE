@@ -59,12 +59,15 @@ export default function CreateNews({ username, profile_picture, user_id, setPost
                     autoComplete="off"
                 ></input>{' '}
             </div>
+
             <img src={imagePreview} alt="" className="image-preview" />
+
             <div>
                 <label htmlFor="image" className="file-input">
                     <img src={videoChat} alt="" />
                     <p>Create Video<br />Chat Room</p>
                 </label>
+
                 <label htmlFor="image" className="file-input">
                     <img src={addPhoto} alt="" />
                     <p>Add An Image<br />Or Photo</p>
@@ -76,6 +79,7 @@ export default function CreateNews({ username, profile_picture, user_id, setPost
                     />
                 </label>
             </div>
+
             <ul className="errors">
                 {errors.map((error) => (
                     <li key={error.msg}>{error.msg}</li>
