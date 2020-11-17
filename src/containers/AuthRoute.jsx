@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-function AuthRoute({ render: Component, ...props }) {
+export default function AuthRoute({ render: Component, ...props }) {
     const [authenticated, setAuthenticated] = useState(0);
 
     useEffect(() => {
@@ -19,5 +19,3 @@ function AuthRoute({ render: Component, ...props }) {
         />
     ): <></>;
 }
-
-export default AuthRoute;

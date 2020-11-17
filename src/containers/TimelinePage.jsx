@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import io from 'socket.io-client';
+
 import headers from 'services/headers';
+import axios from 'axios';
+
 import HeaderNav from './HeaderNav';
 import NewsFeed from '../components/newsFeed/NewsFeed';
 import PeopleSidebar from '../components/peopleSidebar/PeopleSidebar';
 import ContactSidebar from '../components/contactSidebar/ContactSidebar';
-import io from 'socket.io-client';
-import axios from 'axios';
 
 export default function TimelinePage({ match, logOut }) {
     const [user, setUser] = useState({});
@@ -44,13 +46,17 @@ export default function TimelinePage({ match, logOut }) {
                 friend_requests={user.friend_requests}
                 logOut={logOut}
             />
+
             <div className="container">
                 <section className="groups">online users in Video Chat room</section>
+
                 <section className="posts">
                     <NewsFeed currentUser={user} socket={socket} />
                 </section>
+
                 <section className="right-col">
                     <PeopleSidebar currentUser={user} />
+
                     <ContactSidebar currentUser={user} socket={socket} />
                 </section>
             </div>

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
+import headers from './services/headers';
+import axios from 'axios';
+
 import './styles/style.scss';
 import LoginPage from './containers/LoginPage';
 import TimelinePage from './containers/TimelinePage';
 import ProfilePage from './containers/ProfilePage';
 import SearchPage from './containers/SearchPage';
 import AuthRoute from './containers/AuthRoute';
-import headers from './services/headers';
-import axios from 'axios';
 
-function App() {
+export default function App() {
     const [loggedInUser, setLoggedInUser] = useState({});
     const user = JSON.parse(localStorage.getItem('user')) || '';
     const [authenticated, setAuthenticated] = useState(user || '');
@@ -19,11 +20,11 @@ function App() {
     useEffect(() => {
         const getUserInfo = async () => {
             try {
-                const { data } = await axios(`/api/users/${user_id}`, {
+                const { data: userInfo } = await axios(`/api/users/${user_id}`, {
                     mode: 'cors',
                     headers: headers(),
                 });
-                setLoggedInUser(data);
+                setLoggedInUser(userInfo);
             } catch (err) {
                 console.error(err);
             }
@@ -45,21 +46,25 @@ function App() {
                 <Route path="/" exact>
                     <Redirect to={'/users/login'} />
                 </Route>
+
                 <Route
                     path="/users/login"
                     exact
                     render={(props) => <LoginPage {...props} authenticated={authenticated} />}
                 />
+
                 <AuthRoute
                     exact
                     path={'/users/:id/timeline'}
                     render={(props) => <TimelinePage {...props} logOut={logOut} />}
                 />
+
                 <AuthRoute
                     exact
                     path={'/users/:id/profile'}
                     render={(props) => (<ProfilePage {...props} currentUser={loggedInUser} logOut={logOut} />)}
                 />
+
                 <AuthRoute
                     path="/users/:id/search"
                     exact
@@ -69,5 +74,3 @@ function App() {
         </BrowserRouter>
     );
 }
-
-export default App;

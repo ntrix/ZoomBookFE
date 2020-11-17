@@ -70,6 +70,7 @@ export default function SignUpForm() {
     const days = Array(31).fill(0).map( (_, i) => <option value={++i}>{i}</option> );
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
     const years = Array(120).fill(0).map( (_, i) => <option value={ 2020 - i }>{ 2020 - i }</option> );
+
     return (
         <form className="sign-up-form" onSubmit={(e) => signUp(e)}>
             <h1>Create an account</h1>

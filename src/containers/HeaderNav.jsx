@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+
 import headers from 'services/headers';
+import axios from 'axios';
+
+import AccountSetting from '../components/headerNav/AccountSetting';
+import Notifications from '../components/headerNav/Notifications';
+
 import Logo from 'images/ZoomBook.png';
 import SearchIcon from 'images/search.png';
 import edit from 'images/edit.png';
 import defaultAvatar from 'images/defaultAvatar.png';
-import AccountSetting from '../components/headerNav/AccountSetting';
-import Notifications from '../components/headerNav/Notifications';
-import axios from 'axios';
 
 export default function HeaderNav({
     username,
@@ -24,7 +27,7 @@ export default function HeaderNav({
     const pendingFrs = friend_requests
         ? friend_requests.filter((fr) => fr.status === 'Pending' && fr.to._id === user_id)
         : [];
-    const switchNotifModalState = () => {
+    const switchNotifyModalState = () => {
         setShowNotifications(!showNotifications);
         setShowAccountSettings(false);
     };
@@ -63,30 +66,36 @@ export default function HeaderNav({
                 />
                 <img src={SearchIcon} alt="" />
             </form>
+
             <ul>
                 <Link to={`/users/${user_id}/profile`}>
                     <li>
                         <img src={profile_picture || defaultAvatar} alt="" />
                     </li>
+
                     <li>Hi {username}!</li>
                 </Link>
+
                 <li>
                     <Link to={`/users/${user_id}/timeline`}>
                         <img src={edit} alt="" />
                     </Link>
                 </li>
-                <li className="notifications" onClick={switchNotifModalState}>
+
+                <li className="notifications" onClick={switchNotifyModalState}>
                     <i></i>
                     <span>Notifications</span>
                     <span className={frNumber > 0 ? 'fr-number active' : 'fr-number'}>
                         {frNumber > 0 ? frNumber : ''}
                     </span>
                 </li>
+
                 <li className="account" onClick={switchAccModalState}>
                     <i></i>
                     <span>Account</span>
                 </li>
             </ul>
+
             <AccountSetting
                 name={full_name}
                 profile_picture={profile_picture || defaultAvatar}
@@ -94,6 +103,7 @@ export default function HeaderNav({
                 showAccountSettings={showAccountSettings}
                 logOut={logOut}
             />
+
             <Notifications
                 showNotifications={showNotifications}
                 friend_requests={friend_requests}

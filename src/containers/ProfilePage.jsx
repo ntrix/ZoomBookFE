@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
 import headers from 'services/headers';
+import axios from 'axios';
+
 import HeaderNav from './HeaderNav';
 import ProfileBanner from '../components/profilePage/ProfileBanner';
 import UserPosts from '../components/profilePage/UserPosts';
 import Friends from '../components/profilePage/Friends';
-import axios from 'axios';
 
 export default function ProfilePage({ match, currentUser, logOut }) {
     const [user, setUser] = useState({});
@@ -30,6 +32,7 @@ export default function ProfilePage({ match, currentUser, logOut }) {
                 friend_requests={user.friend_requests}
                 logOut={logOut}
             />
+
             <section className="profile">
                 <ProfileBanner
                     first_name={user.first_name || ''}
@@ -42,6 +45,7 @@ export default function ProfilePage({ match, currentUser, logOut }) {
                     friends={currentUser.friends}
                     friend_requests={currentUser.friend_requests}
                 />
+
                 <div className="cols-wrapper">
                     <Friends friends={user.friends} />
                     <UserPosts
