@@ -1,4 +1,5 @@
 import React from 'react';
+
 import headers from 'services/headers';
 import axios from 'axios';
 
@@ -15,39 +16,29 @@ export default function PostReaction({ post_id, user_id, setPostReactions }) {
             reaction: type,
             user_id,
         };
-        const { data } = await axios.put(`/api/posts/${post_id}/react`, reaction,  {
+        const { data: postReaction } = await axios.put(`/api/posts/${post_id}/react`, reaction,  {
             mode: 'cors',
             headers: headers(),
         });
-        setPostReactions((postReactions) => postReactions.concat(data));
+        setPostReactions((postReactions) => postReactions.concat(postReaction));
     };
 
+    const reactions = [
+        { type: 'Like', img: like},
+        { type: 'Love', img: love},
+        { type: 'Haha', img: haha},
+        { type: 'Wow', img: wow},
+        { type: 'Sad', img: sad},
+        { type: 'Angry', img: angry},
+    ];
     return (
         <div className="box">
-            <button className="reaction-like" onClick={() => react('Like')}>
-                <img src={like} alt="" />
-                <span className="legend-reaction">Like</span>
-            </button>
-            <button className="reaction-love" onClick={() => react('Love')}>
-                <img src={love} alt="" />
-                <span className="legend-reaction">Love</span>
-            </button>
-            <button className="reaction-haha" onClick={() => react('Haha')}>
-                <img src={haha} alt="" />
-                <span className="legend-reaction">Haha</span>
-            </button>
-            <button className="reaction-wow" onClick={() => react('Wow')}>
-                <img src={wow} alt="" />
-                <span className="legend-reaction">Wow</span>
-            </button>
-            <button className="reaction-sad" onClick={() => react('Sad')}>
-                <img src={sad} alt="" />
-                <span className="legend-reaction">Sad</span>
-            </button>
-            <button className="reaction-angry" onClick={() => react('Angry')}>
-                <img src={angry} alt="" />
-                <span className="legend-reaction">Angry</span>
-            </button>
+            {reactions.map(r =>
+                <button className="reaction-like" onClick={() => react(r.type)}>
+                    <img src={r.img} alt={r.type} />
+                    <span className="legend-reaction">{r.type}</span>
+                </button>
+            )}
         </div>
     );
 }
