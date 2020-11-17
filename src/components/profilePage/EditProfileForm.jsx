@@ -73,22 +73,22 @@ export default function EditProfileForm({
                         ))}
                     </ul>
                 )}
+
                 <h2>
-                    Edit Profile{' '}
-                    <button type="button" onClick={handleClick}>
-                        X
-                    </button>
+                    Edit Profile
+                    <button type="button" onClick={handleClick}>X</button>
                 </h2>
+
                 <div>
                     <div>
-                        <label htmlFor="profile_picture">Profile Picture</label>
-                        Edit
+                        <label htmlFor="profile_picture">Profile Picture</label>Edit
                         <input
                             type="file"
                             name="profile_picture"
                             onChange={(e) => handleFile(e, setProfile_picture, setImagePreview)}
                         />
                     </div>
+
                     <div>
                         <img
                             src={imagePreview || image}
@@ -99,14 +99,14 @@ export default function EditProfileForm({
                 </div>
                 <div>
                     <div>
-                        <label htmlFor="cover_photo">Cover Photo</label>
-                        Edit
+                        <label htmlFor="cover_photo">Cover Photo</label>Edit
                         <input
                             type="file"
                             name="cover_photo"
                             onChange={(e) => handleFile(e, setCover_photo, setCoverPhotoPreview)}
                         />
                     </div>
+
                     <div>
                         <img
                             src={coverPhotoPreview || cover}
@@ -115,6 +115,7 @@ export default function EditProfileForm({
                         />
                     </div>
                 </div>
+
                 <div>
                     <label htmlFor="first_name">First Name</label>
                     <input
@@ -125,6 +126,7 @@ export default function EditProfileForm({
                         onChange={(e) => setFirst_name(e.target.value)}
                     />
                 </div>
+
                 <div>
                     <label htmlFor="last_name">Last Name</label>
                     <input
@@ -135,6 +137,7 @@ export default function EditProfileForm({
                         onChange={(e) => setLast_name(e.target.value)}
                     />
                 </div>
+
                 <div>
                     <label htmlFor="bio">Bio</label>
                     <textarea
@@ -146,6 +149,7 @@ export default function EditProfileForm({
                         onChange={(e) => setBio(e.target.value)}
                     ></textarea>
                 </div>
+
                 <button>{btnText}</button>
             </form>
         </>
