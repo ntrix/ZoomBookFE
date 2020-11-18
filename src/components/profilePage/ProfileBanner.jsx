@@ -48,7 +48,7 @@ export default function ProfileBanner({
                     <>
                         <button type="button" onClick={switchFormState}>
                             <img src={editIcon} alt="" />
-                            Edit profile
+                            <p>Edit profile</p>
                         </button>
 
                         <EditProfileForm

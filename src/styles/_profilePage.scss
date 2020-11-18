@@ -56,9 +56,11 @@
             width: 100%;
         }
         button {
+            display: flex;
+            justify-content: center;
             @extend .gray-btn;
-            img {
-                margin-right: 10px;
+            p {
+                margin: auto 0.5rem;
             }
         }
         button.add-friend {
