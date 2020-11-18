@@ -47,9 +47,11 @@ export default function HeaderNav({
                     <li>Hi {username}!</li>
                 </Link>
 
-                <Link to={`/users/${user_id}/timeline`}>
-                    <li><img src={edit} alt="" /></li>
-                </Link>
+                <li>
+                    <Link to={`/users/${user_id}/timeline`}>
+                        <img src={edit} alt="" />
+                    </Link>
+                </li>
 
                 <li className="notifications" onClick={switchNotifyModalState}>
                     <i></i>
