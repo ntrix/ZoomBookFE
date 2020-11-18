@@ -7,7 +7,7 @@ import axios from 'axios';
 import SearchIcon from 'images/search.png';
 
 export default function SearchBox({user_id}) {
-    const [showIcon, setShowIcon] = useState(true);
+    const [showIcon, setShowIcon] = useState(1);
     const [searchPeopleQuery, setSearchPeopleQuery] = useState('');
     const history = useHistory();
 
@@ -34,10 +34,11 @@ export default function SearchBox({user_id}) {
                     type="search"
                     placeholder="Search"
                     onChange={ e => setSearchPeopleQuery(e.target.value)}
-                    onFocus={ _ => setShowIcon(false)}
-                    onBlur={ _ => setShowIcon(true)}
+                    onFocus={ _ => setShowIcon(0)}
+                    onBlur={ _ => setShowIcon(1)}
                 />
-                {showIcon && <img src={SearchIcon} alt="" />}
+
+                <img src={SearchIcon} alt="" style={{opacity: showIcon, transition: 'all 0.5s ease'}} />
             </div>
         </form>
     )
