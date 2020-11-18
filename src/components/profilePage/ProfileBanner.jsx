@@ -10,7 +10,7 @@ export default function ProfileBanner({
     first_name,
     last_name,
     bio,
-    cover_photo = defaultCover,
+    cover_photo,
     profile_picture,
     notLoggedInUser,
     currentUser,
@@ -26,7 +26,7 @@ export default function ProfileBanner({
         <section className="intro">
             <div className="user-images">
                 <div className="cover-photo-container">
-                    <img src={cover_photo} alt="" className="cover-photo" />
+                    <img src={cover_photo? cover_photo: defaultCover} alt="" className="cover-photo" />
                 </div>
 
                 <img src={profile_picture || defaultAvatar} alt="" className="profile-picture" />
@@ -56,7 +56,7 @@ export default function ProfileBanner({
                             handleClick={switchFormState}
                             userBio={bio}
                             image={profile_picture}
-                            cover={cover_photo}
+                            cover={cover_photo? cover_photo: defaultCover}
                             userFirstName={first_name}
                             userLastName={last_name}
                             currentUser={currentUser}
