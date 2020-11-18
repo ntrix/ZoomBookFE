@@ -23,6 +23,7 @@ export default function HeaderNav({
     const [showAccountSettings, setShowAccountSettings] = useState(false);
     const [showNotifications, setShowNotifications] = useState(false);
     const [searchPeopleQuery, setSearchPeopleQuery] = useState('');
+    const [showIcon, setShowIcon] = useState(true);
     const history = useHistory();
     const pendingFrs = friend_requests
         ? friend_requests.filter((fr) => fr.status === 'Pending' && fr.to._id === user_id)
@@ -59,12 +60,16 @@ export default function HeaderNav({
         <header className="home-header">
             <form onSubmit={(e) => searchPeople(e)}>
                 <img src={Logo} alt="" />
-                <input
-                    type="search"
-                    placeholder="Search"
-                    onChange={(e) => setSearchPeopleQuery(e.target.value)}
-                />
-                <img src={SearchIcon} alt="" />
+                <div className="search-box">
+                    <input
+                        type="search"
+                        placeholder="Search"
+                        onChange={ e => setSearchPeopleQuery(e.target.value)}
+                        onFocus={ _ => setShowIcon(false)}
+                        onBlur={ _ => setShowIcon(true)}
+                    />
+                    {showIcon && <img src={SearchIcon} alt="" />}
+                </div>
             </form>
 
             <ul>

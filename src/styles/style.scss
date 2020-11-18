@@ -271,7 +271,10 @@ body {
             border-radius: 0.3rem;
             background-color: white;
             flex: 1;
-
+            img {
+                height: 100%;
+                margin: auto 0.5rem;
+            }
         }
         input {
             padding: 0.5em;
@@ -279,11 +282,6 @@ body {
             font-size: 1rem;
             outline: none;
             flex: 1;
-        img {
-            height: 100%;
-            margin: auto 0.5rem;
-        
-        }
         }
         button {
             width: 1px;
