@@ -97,21 +97,23 @@ $duration: 10s;
 
 .loading {
   position: relative;
-  width: $square * 3;
   height: $square * 3;
+  width: $square * 3;
   transform: rotate(45deg);
   animation: hue-rotate $duration linear infinite both;
 }
 
 .loading__square {
   position: absolute;
+  height: $square - 4px;
+  width: $square - 4px;
+  margin: 2px;
+
   top: 0;
   left: 0;
-  width: $square - 4px;
-  height: $square - 4px;
-  margin: 2px;
   border-radius: 2px;
   background: #07a;
+  
   background-image: linear-gradient(45deg, #fa0 40%, #0c9 60%);
   background-image: -moz-linear-gradient(#fa0, #fa0);
   background-size: cover;

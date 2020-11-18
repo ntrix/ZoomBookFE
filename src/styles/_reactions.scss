@@ -1,40 +1,42 @@
 .box {
+    display: flex;
     position: absolute;
     top: -50px;
     left: 0;
-    border: 1px solid transparent;
+
     border-radius: 1.5rem;
-    display: flex;
+    border: 1px solid transparent;
     box-shadow: 1px 2px 3px #333;
     transition: transform 150ms ease;
     transform: scale(0);
     button {
         position: relative;
         padding: 0 !important;
-        cursor: pointer;
         outline: none;
+        cursor: pointer;
         img {
-            width: 45px;
             height: 45px;
+            width: 45px;
             transition: transform 250ms ease;
             &:hover {
-                transform: scale(1.2) translateY(-5px);
                 background-color: transparent !important;
+                transform: scale(1.2) translateY(-5px);
             }
         }
         &:hover .legend-reaction {
             display: inline;
         }
         .legend-reaction {
-            position: absolute;
-            top: -3rem;
-            background-color: #333;
-            padding: 0.4rem;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
-            border-radius: 1rem;
             display: none;
+            position: absolute;
+            padding: 0.4rem;
+            top: -3rem;
+            border-radius: 1rem;
+
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+            background-color: #333;
         }
     }
     button {
@@ -71,12 +73,12 @@
 }
 
 #like-btn:hover .box button {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
 }
 
 .like:hover .box {
+    background: white;
     transform-origin: (50%, 0);
     transform: scale(1);
-    background: white;
 }

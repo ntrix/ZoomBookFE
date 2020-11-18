@@ -6,7 +6,7 @@
 @import './loadingSpin';
 
 *:hover {
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 body {
@@ -15,48 +15,48 @@ body {
 }
 
 .placeholder-image {
-    border-radius: 50%;
-    background-color: $gray;
     height: 45px;
     width: 45px;
+    border-radius: 50%;
+    background-color: $gray;
 }
 
 .gray-btn {
-    background-color: $gray;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
     padding: 0.6em;
-    color: black;
-    font-weight: bold;
+    border-radius: 0.3rem;
     font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+
+    color: black;
+    background-color: $gray;
+    cursor: pointer;
     &:hover {
         background-color: rgb(231, 231, 231);
+        transform: translateY(1px);
     }
 }
 
 .login-page__header {
-    padding: 1em 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    @include flex(row, space-around, center);
+    padding: 1rem 0;
+    border-bottom: 1px solid #133783;
     background-color: $fb-blue;
     background-image: linear-gradient(#4e69a2, $fb-blue 50%);
-    border-bottom: 1px solid #133783;
     h1 {
-        color:white;
         flex-grow: 0.8;
+        color:white;
     }
     .log-in-wrapper {
         display: flex;
-        align-items: flex-end;
         min-width: 300px;
+        align-items: flex-end;
         flex-wrap: wrap;
         & > p {
             width: 100%;
-            color: white;
-            text-indent: 10px;
             margin-top: 5px;
+            text-indent: 10px;
+            color: white;
         }
         .log-in-form {
             display: flex;
@@ -66,24 +66,26 @@ body {
                 flex-direction: column;
                 margin: 0 10px;
                 label {
-                    color: white;
                     margin-bottom: 7px;
+                    color: white;
                 }
                 input {
-                    border: 1px solid #1d2a5b;
                     padding: 2px;
+                    border: 1px solid #1d2a5b;
                 }
             }
             button {
-                background-color: #4267b2;
+                min-width: 65px;
                 padding: 2px 5px;
-                color: white;
                 font-weight: bold;
                 border: 1px solid #29487d;
+
+                color: white;
+                background-color: #4267b2;
                 cursor: pointer;
-                min-width: 65px;
                 &:hover {
                     background-color: #365899;
+                    transform: translateY(1px);
                 }
             }
         }
@@ -91,15 +93,13 @@ body {
 }
 
 .sign-up__container {
-    display: flex;
-    justify-content: space-around;
-    align-items: space-around;
-    background: linear-gradient(white, #d3d8e8);
+    @include flex(row, space-around, space-around);
     min-height: 89vh;
+    background: linear-gradient(white, #d3d8e8);
     .sign-up-form {
-        padding: 1em;
         display: flex;
         flex-direction: column;
+        padding: 1rem;
         h1 {
             font-size: 2.3rem;
         }
@@ -115,24 +115,24 @@ body {
             }
         }
         input {
-            border: 1px solid #bdc7d8;
-            border-radius: 0.3rem;
-            padding: 8px;
-            font-size: 1.2rem;
             margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 0.3rem;
+            font-size: 1.2rem;
+            border: 1px solid #bdc7d8;
         }
         .p-titles {
-            color: #90949c;
-            font-weight: bold;
             margin-bottom: 10px;
+            font-weight: bold;
+            color: #90949c;
         }
         .birthday-selects {
             margin-bottom: 15px;
             select {
-                padding: 5px;
-                color: black;
-                border: 1px solid #ccd0d5;
                 margin-right: 1px;
+                padding: 5px;
+                border: 1px solid #ccd0d5;
+                color: black;
             }
         }
         .gender-choices {
@@ -141,58 +141,58 @@ body {
             width: 80%;
             margin-bottom: 15px;
             div {
-                width: 32%;
                 display: flex;
                 justify-content: center;
+                width: 32%;
                 label {
+                    margin-left: 5px;
                     font-size: 1.3rem;
                     color: black;
-                    margin-left: 5px;
                 }
             }
         }
         button {
-            align-self: center;
-            background-color: #69a74e;
-            border: none;
             width: 48%;
+            margin-top: 1em;
             padding: 0.3em 0;
+            align-self: center;
+            border-radius: 0.3rem;
+
             font-weight: bold;
             font-size: 1.3rem;
+            border: none;
             color: white;
-            border-radius: 0.3rem;
+            background-color: #69a74e;
+            
             cursor: pointer;
-            margin-top: 1em;
+            &:hover {
+                transform: translateY(1px);
+            }
         }
     }
     article {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
+        @include flex(column, flex-start, flex-start);
         min-height: 70vh;
         max-width: 600px;
         margin-right: -20em;
         h3 {
-            color: #0e385f;
             margin: 1em;
             font-size: 1.7rem;
+            color: #0e385f;
         }
     }
 }
 
 .groups {
-    margin: 2em 0;
-    border: 1px solid $border-gray;
     visibility: hidden;
     width: 300px;
+    margin: 2em 0;
+    border: 1px solid $border-gray;
 }
 
 @media screen and (max-width: 1380px) {
     .sign-up__container {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flex(column, center, center);
         .sign-up-form {
             width: 60%;
             order: -1;
@@ -222,13 +222,13 @@ body {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 576px) {
     .login-page__header {
         justify-content: flex-start;
         .log-in-form {
             flex-wrap: wrap;
             button {
-                margin-top: 1em;
+                margin-top: 1rem;
             }
         }
     }
@@ -239,22 +239,22 @@ body {
 }
 
 .form-errors {
-    padding: 1em 0;
+    padding: 1rem 0;
     list-style-position: inside;
     li {
-        color: rgb(218, 51, 51);
-        font-weight: bold;
         margin-bottom: 5px;
+        font-weight: bold;
+        color: rgb(218, 51, 51);
     }
 }
 
 .home-header {
-    box-shadow: 0 1px 4px rgb(225, 225, 225);
-    padding: 0.6em;
     @include flex(row, space-between);
-    background-color: $fb-blue;
     position: sticky;
+    padding: 0.6em;
     top: 0;
+    box-shadow: 0 1px 4px rgb(225, 225, 225);
+    background-color: $fb-blue;
     z-index: 200;
     form:first-of-type {
         @include flex(row, space-between, center);
@@ -267,37 +267,39 @@ body {
         }
         .search-box {
             display: flex;
+            flex: 1;
             margin: 0 0.5rem;
             border-radius: 0.3rem;
             background-color: white;
-            flex: 1;
             img {
                 height: 100%;
                 margin: auto 0.5rem;
             }
         }
         input {
-            padding: 0.5em;
-            border: none;
-            font-size: 1rem;
-            outline: none;
             flex: 1;
+            padding: 0.5rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
         }
         button {
-            width: 1px;
             opacity: 0;
+            width: 1px;
         }
     }
     a {
-        text-decoration: none;
-        border-radius: 1.5rem;
-        padding: 0.3rem;
-        margin-right: 0.25rem;
         display: flex;
+        margin-right: 0.25rem;
+        padding: 0.3rem;
         align-items: center;
+        border-radius: 1.5rem;
+
+        text-decoration: none;
         background-color: $gray;
         &:hover {
             background-color: #e1e1e1;
+            transform: translateY(1px);
         }
     }
     ul {
@@ -308,61 +310,60 @@ body {
             @include flex(row, center, center);
             img {
                 @extend .placeholder-image;
-                width: 30px !important;
                 height: 30px !important;
+                width: 30px !important;
             }
         }
         li {
+            position: relative;
+            margin-right: 0.25rem;
             font-weight: bold;
             color: black;
-            margin-right: 0.25rem;
-            position: relative;
-            &:hover span {
-                opacity: 1;
-            }
             span {
-                position: absolute;
-                bottom: -45px;
-                background-color: #333;
-                color: white;
-                font-weight: normal;
                 opacity: 0;
-                transition: opacity 150ms ease-in;
+                position: absolute;
                 padding: 10px;
+                bottom: -45px;
                 border-radius: 0.6em;
-                font-size: 0.8rem;
+
                 letter-spacing: 1px;
+                font-size: 0.8rem;
+                font-weight: normal;
+                color: white;
+                background-color: #333;
             }
-        }
-        li i {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
+            i {
+                display: inline-block;
+                height: 20px;
+                width: 20px;
+            }
         }
         .notifications {
+            @include flex(row, center, center);
             padding: 10px;
             border-radius: 50%;
             background-color: $gray;
             cursor: pointer;
-            @include flex(row, center, center);
             &:hover {
-                background-color: rgb(225, 225, 225);
+                background-color: #ddd;
+                transform: translateY(1px);
             }
             i {
                 background: url('../images/bell.png') center no-repeat;
                 background-size: contain;
             }
             .fr-number {
-                background-color: #f02849;
                 opacity: 0;
+                @include flex(row, center, center);
+                height: 20px;
+                width: 18px;
+                padding: 3px;
+
                 top: -8px;
                 right: -5px;
                 bottom: auto;
                 border-radius: 50%;
-                width: 18px;
-                height: 20px;
-                padding: 3px;
-                @include flex(row, center, center);
+                background-color: #f02849;
             }
             .fr-number.active {
                 opacity: 1;
@@ -378,47 +379,48 @@ body {
         }
     }
     .account-modal.active {
-        display: block;
+        opacity: 1;
     }
     .account-modal {
+        opacity: 0;
         position: absolute;
-        right: 20px;
-        bottom: -235px;
-        border-radius: 0.6em;
-        background: white;
-        box-shadow: 0 0 3px $border-gray;
-        padding: 0.4em;
-        display: none;
         min-width: 300px;
+        padding: 0.4em;
+
+        right: 20px;
+        bottom: -244px;
+        border-radius: 0.6em;
+        box-shadow: 0 0 3px $border-gray;
+        background: white;
         a {
-            border-radius: 0.6em;
             margin: 0.5rem;
+            border-radius: 0.6em;
         }
         .border {
-            border-bottom: 1px solid $border-gray;
             margin: 15px 0;
+            border-bottom: 1px solid $border-gray;
         }
         figure {
             display: flex;
             width: 100%;
-            border-radius: 0.3rem;
             padding: 0.4em 0;
             align-items: center;
+            border-radius: 0.3rem;
             cursor: pointer;
             img {
                 @extend .placeholder-image;
-                width: 4rem;
                 height: 4rem;
+                width: 4rem;
                 margin-right: 10px;
                 border-radius: 0.3rem;
             }
             figcaption {
                 flex: 1;
                 p:first-child {
-                    font-weight: bold;
-                    font-size: 1.2rem;
-                    color: black;
                     margin-bottom: 5px;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    color: black;
                 }
                 p:last-child {
                     color: $gray-text;
@@ -432,19 +434,20 @@ body {
             }
         }
         button.option {
-            background: none;
-            border: none;
-            width: 100%;
-            cursor: pointer;
             @include flex(row, space-between, center);
-            font-size: 1.1rem;
+            width: 100%;
             padding: 0.3em 0;
+            font-size: 1.1rem;
+            border: none;
+
+            background: none;
+            cursor: pointer;
             img {
-                background-color: rgb(225, 225, 225);
+                height: 32px;
+                width: 32px;
                 padding: 8px;
                 border-radius: 50%;
-                width: 32px;
-                height: 32px;
+                background-color: rgb(225, 225, 225);
             }
             p {
                 flex: 1;
@@ -453,22 +456,23 @@ body {
             }
         }
         div.option {
+            @extend button.option;
             border-radius: 0.3rem;
             cursor: pointer;
-            @extend button.option;
         }
     }
     .notifications-modal.active {
-        display: block;
+        opacity: 1;
     }
     .notifications-modal {
         @extend .account-modal;
-        width: 300px;
-        background: white;
-        box-shadow: 0 0 3px $border-gray;
         position: absolute;
-        bottom: 0;
+        width: 300px;
         right: 70px;
+        bottom: 15px;
+
+        box-shadow: 0 0 3px $border-gray;
+        background: white;
         transform: translateY(100%);
         h3 {
             padding: 0.6em;
@@ -476,8 +480,8 @@ body {
         }
         p {
             padding: 0.6em;
-            color: $gray-text;
             font-size: 1.1rem;
+            color: $gray-text;
         }
         article {
             margin: 12px;
@@ -485,14 +489,15 @@ body {
                 background-color: white;
             }
             div:last-child.active {
-                background-color: $blue;
-                padding: 0.6em 0.8em;
-                justify-content: flex-end;
-                color: white;
-                font-weight: bold;
                 width: max-content;
                 margin-left: auto;
+                padding: 0.6em 0.8em;
+                justify-content: flex-end;
                 border-radius: 0.3rem;
+
+                font-weight: bold;
+                color: white;
+                background-color: $blue;
             }
             div.hide {
                 display: none;
@@ -503,13 +508,17 @@ body {
                 justify-content: flex-end;
                 .accept-fr,
                 .decline-fr {
-                    background-color: $blue;
-                    cursor: pointer;
+                    padding: 0.6em 1em;
                     border-radius: 0.3rem;
                     border: none;
-                    padding: 0.6em 1em;
                     font-weight: bold;
+
                     color: white;
+                    background-color: $blue;
+                    cursor: pointer;
+                    &:hover {
+                        transform: translateY(1px);
+                    }
                 }
                 .decline-fr {
                     margin-left: 15px;
@@ -535,11 +544,11 @@ body {
         margin-left: 0;
     }
     .create-post {
-        padding: 1em;
-        box-shadow: 0 0 3px $border-gray;
-        border-radius: 0.3rem;
-        background-color: white;
         position: relative;
+        padding: 1rem;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 3px $border-gray;
+        background-color: white;
         div {
             display: flex;
             flex-wrap: wrap;
@@ -549,54 +558,58 @@ body {
                 @extend .placeholder-image;
             }
             .text-input {
+                width: 89%;
+                margin-left: 10px;
+                padding: 0.35em 0.7em;
+                font-size: 1.1rem;
+                resize: vertical;
+
                 border: none;
                 border-radius: 0.3rem;
-                cursor: pointer;
-                padding: 0.35em 0.7em;
-                background-color: #f0f2f540;
-                width: 89%;
-                font-size: 1.1rem;
-                margin-left: 10px;
-                resize: vertical;
                 outline: none;
+                background-color: #f0f2f540;
+                cursor: pointer;
             }
         }
         .image-preview {
-            max-width: 100%;
             display: block;
+            max-width: 100%;
             margin: 10px auto;
         }
         .file-input {
             display: block;
-            padding: 0.6em 0;
             @include flex(row, center);
-            color: $gray-text;
-            font-size: 1.1rem;
-            margin: 0 auto;
             width: 50%;
+            margin: 0 auto;
+            padding: 0.6em 0;
+
             border-radius: 0.3rem;
+            font-size: 1.1rem;
+            color: $gray-text;
             &:hover {
                 background-color: $gray;
+                transform: translateY(1px);
             }
             img {
                 margin-right: 10px;
             }
             input {
-                cursor: pointer;
+                opacity: 0;
                 position: absolute;
                 height: 4rem;
-                opacity: 0;
+                cursor: pointer;
             }
         }
         button {
             width: 100%;
-            background-color: $fb-lightblue;
-            padding: 0.5em 0;
-            border: 1px solid transparent;
-            border-radius: 0.3rem;
-            color: white;
-            font-weight: bold;
             margin-top: 1em;
+            padding: 0.5em 0;
+            border-radius: 0.3rem;
+            border: 1px solid transparent;
+
+            font-weight: bold;
+            color: white;
+            background-color: $fb-lightblue;
             cursor: pointer;
             &:active {
                 transform: scale(0.98);
@@ -606,51 +619,54 @@ body {
     .post-list {
         margin-top: 2em;
         article {
-            padding: 1em;
-            margin-bottom: 2em;
-            box-shadow: 0 0 3px $border-gray;
-            background-color: white;
-            border-radius: 0.3rem;
             position: relative;
+            margin-bottom: 2em;
+            padding: 1em;
+            border-radius: 0.3rem;
+            box-shadow: 0 0 3px $border-gray;
+
+            background-color: white;
             .post-edit-form {
                 input {
                     margin-left: 0;
                 }
             }
             .post-actions {
+                @include flex(row, center, center);
                 position: absolute;
-                top: 10px;
-                right: 20px;
-                font-weight: bold;
-                color: $gray-text;
                 height: 40px;
                 width: 40px;
-                cursor: pointer;
+                top: 10px;
+                right: 20px;
+
+                font-weight: bold;
+                color: $gray-text;
                 border-radius: 50%;
-                @include flex(row, center, center);
+                cursor: pointer;
                 &:hover {
                     background-color: $gray;
                 }
-
                 .btn-wrapper {
                     position: absolute;
+                    min-width: 300px;
+                    padding: 1em;
                     bottom: -115px;
                     left: -270px;
-                    background-color: white;
+
                     box-shadow: 0 0 3px $border-gray;
-                    padding: 1em;
-                    min-width: 300px;
+                    background-color: white;
                     div {
                         button {
                             @include flex(row, flex-start, center);
                             width: 100%;
-                            background-color: white;
-                            border: none;
                             padding: 0.8em 0;
-                            border-radius: 0.3rem;
-                            cursor: pointer;
-                            color: $gray-text;
                             font-size: 1.05rem;
+                            border-radius: 0.3rem;
+
+                            border: none;
+                            color: $gray-text;
+                            background-color: white;
+                            cursor: pointer;
                             &:hover {
                                 background-color: $gray;
                             }
@@ -672,12 +688,12 @@ body {
                     flex: 1;
                     @include flex(column);
                     .username {
-                        color: black;
                         font-weight: bold;
+                        color: black;
                     }
                     .post-date {
-                        color: $gray-text;
                         font-size: 0.8rem;
+                        color: $gray-text;
                     }
                 }
             }
@@ -695,28 +711,29 @@ body {
                 @include flex();
                 padding: 0.5em 0;
                 .reaction-counter {
-                    background-color: rgba(0, 0, 0, 0.815);
-                    color: $gray;
-                    display: inline-block;
-                    font-size: 0.6rem;
-                    padding: 2px 6px;
-                    border-radius: 0.3rem;
-                    position: absolute;
-                    top: -25px;
                     opacity: 0;
+                    display: inline-block;
+                    position: absolute;
+                    padding: 2px 6px;
+                    top: -25px;
+
+                    border-radius: 0.3rem;
+                    font-size: 0.6rem;
+                    color: $gray;
+                    background-color: rgba(0, 0, 0, 0.815);
                 }
                 .reactions {
-                    list-style: none;
                     display: flex;
                     align-items: center;
-                    li img {
-                        width: 20px;
-                        height: 20px;
-                    }
+                    list-style: none;
                     li {
-                        margin-left: -3px;
                         display: flex;
                         position: relative;
+                        margin-left: -3px;
+                        img {
+                            height: 20px;
+                            width: 20px;
+                        }
                         &:hover span {
                             opacity: 1;
                         }
@@ -734,25 +751,26 @@ body {
                 }
             }
             .like-comment-buttons {
-                border-top: 1px solid $border-gray;
-                border-bottom: 1px solid $border-gray;
                 display: flex;
                 position: relative;
+                border-top: 1px solid $border-gray;
+                border-bottom: 1px solid $border-gray;
                 button,
                 & > div {
-                    background-color: transparent;
-                    flex: 1;
-                    border: 1px solid transparent;
-                    border-radius: 0.3rem;
-                    color: $gray-text;
-                    padding: 0.3em 0;
-                    margin: 3px;
-                    font-size: 1.05rem;
                     @include flex(row, center, center);
+                    margin: 3px;
+                    padding: 0.3em 0;
+                    flex: 1;
+                    border-radius: 0.3rem;
+
+                    font-size: 1.05rem;
+                    border: 1px solid transparent;
+                    color: $gray-text;
+                    background-color: transparent;
                     i {
-                        width: 28px;
-                        height: 28px;
                         display: inline-block;
+                        height: 28px;
+                        width: 28px;
                         margin-right: 5px;
                     }
                 }
@@ -760,6 +778,7 @@ body {
                 .comment:hover {
                     background-color: $gray;
                     cursor: pointer;
+                    transform: translateY(1px);
                 }
                 .like i {
                     background: url('../images/likes.png') center no-repeat;
@@ -775,29 +794,30 @@ body {
                     flex-wrap: wrap;
                     img {
                         @extend .placeholder-image;
-                        width: 35px;
                         height: 35px;
+                        width: 35px;
                     }
                     figcaption {
-                        padding: 0.8em;
-                        background-color: $gray;
-                        border: 1px solid transparent;
-                        border-radius: 1.5rem;
-                        margin-left: 10px;
-                        flex: 1;
                         width: max-content;
+                        flex: 1;
+                        margin-left: 10px;
+                        padding: 0.8em;
+                        border-radius: 1.5rem;
+
+                        border: 1px solid transparent;
+                        background-color: $gray;
                         .username {
+                            margin-bottom: 10px;
                             font-weight: bold;
                             color: black;
-                            margin-bottom: 10px;
                         }
                     }
                     .timestamp {
                         width: 100%;
-                        color: $gray-text;
-                        font-size: 0.8rem;
-                        text-indent: 50px;
                         margin: 6px 0 12px 0;
+                        text-indent: 50px;
+                        font-size: 0.8rem;
+                        color: $gray-text;
                     }
                 }
             }
@@ -807,13 +827,14 @@ body {
                     @extend .placeholder-image;
                 }
                 input {
-                    padding: 0.6em;
-                    border: 1px solid transparent;
-                    border-radius: 1.5rem;
-                    background-color: $gray;
-                    margin-left: 10px;
                     flex: 1;
+                    margin-left: 10px;
+                    padding: 0.6em;
                     outline: none;
+                    border-radius: 1.5rem;
+
+                    border: 1px solid transparent;
+                    background-color: $gray;
                 }
                 button {
                     display: none;
@@ -830,39 +851,40 @@ body {
         color: $gray-text;
     }
     .find-friends {
-        background-color: white;
+        min-width: 250px;
         padding: 0 1em;
         border-radius: 0.3rem;
         box-shadow: 0 0 3px $border-gray;
-        min-width: 250px;
+        background-color: white;
         article {
             display: flex;
-            align-items: center;
             padding: 1em 0;
+            align-items: center;
             img {
                 @extend .placeholder-image;
-                width: 40px;
                 height: 40px;
+                width: 40px;
             }
             div {
                 flex: 1;
                 margin-left: 15px;
                 @include flex(row, space-between, center);
                 p {
+                    margin-bottom: 5px;
+                    font-size: 1.1rem;
                     font-weight: bold;
                     color: black;
-                    font-size: 1.1rem;
-                    margin-bottom: 5px;
                 }
                 button {
-                    cursor: pointer;
-                    background-color: $blue;
-                    border: 1px solid transparent;
-                    border-radius: 0.3rem;
-                    font-weight: bold;
-                    color: white;
-                    padding: 0.4em;
                     width: 40%;
+                    padding: 0.4em;
+                    border-radius: 0.3rem;
+                    border: 1px solid transparent;
+                    font-weight: bold;
+
+                    color: white;
+                    background-color: $blue;
+                    cursor: pointer;
                     &:active {
                         transform: scale(0.98);
                     }
@@ -871,103 +893,102 @@ body {
         }
     }
     .contacts-chat {
+        width: 350px;
         margin-top: 4em;
         padding: 0 1em;
-        width: 350px;
         .info-chat-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
+            @include flex(column, flex-start, flex-start);
         }
         figure {
             display: flex;
-            align-items: center;
-            padding: 0.4em 0.2em;
-            border-radius: 0.6em;
             width: 100%;
+            padding: 0.4em 0.2em;
+            align-items: center;
+            border-radius: 0.6em;
             cursor: pointer;
             &:hover {
                 background-color: rgb(225, 225, 225);
+                transform: translateY(1px);
             }
             img {
-                width: 35px;
                 height: 35px;
-                border-radius: 50%;
+                width: 35px;
                 margin-right: 10px;
+                border-radius: 50%;
             }
         }
         .chat.close {
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: all 150ms ease;
+            visibility: hidden;
             opacity: 0;
             height: 1px;
-            visibility: hidden;
             margin-top: -10px;
+            transform: scaleY(0);
+            transform-origin: top;
         }
         .chat.open {
             visibility: visible;
-            transform: scaleY(1);
-            margin: 1em 0;
             height: auto;
-            transition: all 150ms ease;
+            margin: 1em 0;
+            transform: scaleY(1);
         }
         .chat {
-            background-color: white;
-            box-shadow: 0 0 6px $border-gray;
-            border-radius: 0.6em;
-            padding: 1em;
             width: 100%;
+            padding: 1em;
+            border-radius: 0.6em;
+            box-shadow: 0 0 6px $border-gray;
+            background-color: white;
             .friend-info {
                 @include flex(row, space-between, center);
                 box-shadow: 0 8px 14px -6px $gray;
                 button {
-                    color: $blue;
-                    border: none;
-                    cursor: pointer;
-                    background-color: transparent;
-                    font-weight: bold;
-                    border-radius: 50%;
-                    padding: 0.7em;
                     min-width: 30px;
+                    padding: 0.7em;
+                    border-radius: 50%;
+                    font-weight: bold;
+                    color: $blue;
+
+                    border: none;
+                    background-color: transparent;
+                    cursor: pointer;
                     &:hover {
                         background-color: rgba(222, 222, 236, 0.644);
                     }
                 }
                 figure:hover {
                     background-color: white !important;
+                    transform: translateY(1px);
                 }
             }
             .messages {
-                height: 300px;
                 @include flex(column, flex-start, flex-start);
-                overflow-y: scroll;
+                height: 300px;
                 margin-bottom: 0.5em;
+                overflow-y: scroll;
                 .message {
-                    padding: 0.6em 0.8em;
-                    margin: 0.6em 0.2em;
-                    background-color: $blue;
-                    color: white;
-                    border-radius: 1.5rem;
-                    align-self: flex-end;
                     max-width: 80%;
+                    margin: 0.6em 0.2em;
+                    padding: 0.6em 0.8em;
+                    align-self: flex-end;
+
+                    border-radius: 1.5rem;
+                    color: white;
+                    background-color: $blue;
                 }
                 .message.other {
-                    background-color: $gray;
-                    color: #333;
                     align-self: flex-start;
+                    color: #333;
+                    background-color: $gray;
                 }
             }
             form {
-                box-shadow: 0 -10px 30px -12px $gray;
                 padding-top: 1em;
+                box-shadow: 0 -10px 30px -12px $gray;
                 input {
-                    border-radius: 1.5rem;
-                    background-color: rgb(225, 225, 225);
-                    border: none;
-                    padding: 0.8em 0.6em;
                     width: 100%;
+                    padding: 0.8em 0.6em;
+                    border-radius: 1.5rem;
+                    border: none;
+                    background-color: rgb(225, 225, 225);
                     &:focus {
                         outline: none;
                     }
@@ -984,7 +1005,7 @@ body {
 .errors {
     list-style: none;
     li {
-        color: $red;
         font-weight: bold;
+        color: $red;
     }
 }

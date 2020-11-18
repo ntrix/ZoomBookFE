@@ -1,47 +1,48 @@
 .search-people {
-    margin: 4em auto;
-    box-shadow: 0 0 6px $gray;
-    padding: 1em;
     width: 40%;
+    margin: 4em auto;
+    padding: 1em;
     border-radius: 0.3rem;
+    box-shadow: 0 0 6px $gray;
     background-color: white;
     p {
         margin: 3em 0;
+        text-align: center;
         font-size: 1.1rem;
         color: $gray-text;
-        text-align: center;
     }
     h2 {
         margin: 0.4em 0;
     }
     figure {
-        border-bottom: 1px solid $border-gray;
         padding: 0.8em 0;
+        border-bottom: 1px solid $border-gray;
         @include flex(row, space-between, center);
         a {
             @include flex(row, flex-start, center);
         }
         img {
-            width: 80px;
             height: 80px;
+            width: 80px;
+            margin-right: 10px;
             object-fit: cover;
             border-radius: 50%;
-            margin-right: 10px;
         }
         figcaption {
-            font-weight: bold;
             font-size: 1.2rem;
+            font-weight: bold;
         }
         &:last-child {
             border: none;
         }
         .action {
             padding: 0.5em;
-            background-color: $blue;
-            color: white;
-            font-weight: bold;
             border-radius: 0.3rem;
             border: none;
+            font-weight: bold;
+
+            color: white;
+            background-color: $blue;
             cursor: pointer;
         }
     }
