@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import headers from 'services/headers';
 import axios from 'axios';
 
-export default function Notifications({ showNotifications, friend_requests, pendingFrs }) {
+export default function Notifications({ friend_requests, pendingFrs }) {
     const [showResult, setShowResult] = useState(false);
     const [resultText, setResultText] = useState('');
 
@@ -23,7 +23,7 @@ export default function Notifications({ showNotifications, friend_requests, pend
     };
 
     return (
-        <div className={showNotifications ? 'notifications-modal active' : 'notifications-modal'}>
+        <div className='notifications-modal'>
             <h3>Notifications</h3>
 
             {friend_requests && pendingFrs.map((fr) => (

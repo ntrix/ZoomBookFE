@@ -163,7 +163,7 @@ body {
             border: none;
             color: white;
             background-color: #69a74e;
-            
+
             cursor: pointer;
             &:hover {
                 transform: translateY(1px);
@@ -378,20 +378,18 @@ body {
             }
         }
     }
-    .account-modal.active {
-        opacity: 1;
-    }
+ 
     .account-modal {
-        opacity: 0;
         position: absolute;
         min-width: 300px;
         padding: 0.4em;
-
         right: 20px;
         bottom: -244px;
+
         border-radius: 0.6em;
         box-shadow: 0 0 3px $border-gray;
         background: white;
+        z-index: 99;
         a {
             margin: 0.5rem;
             border-radius: 0.6em;
@@ -461,9 +459,7 @@ body {
             cursor: pointer;
         }
     }
-    .notifications-modal.active {
-        opacity: 1;
-    }
+
     .notifications-modal {
         @extend .account-modal;
         position: absolute;
@@ -611,8 +607,9 @@ body {
             color: white;
             background-color: $fb-lightblue;
             cursor: pointer;
-            &:active {
-                transform: scale(0.98);
+            &:active,
+            &:hover {
+                transform: translateY(1px) scale(0.99);
             }
         }
     }
@@ -1000,6 +997,20 @@ body {
             }
         }
     }
+}
+
+.modal-shadow {
+    opacity: 0.4;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+
+    box-sizing: border-box;
+    background: black;
+    cursor: alias;
+    z-index: 99;
 }
 
 .errors {

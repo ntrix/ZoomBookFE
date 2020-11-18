@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import logOutIcon from 'images/logOut.png';
 import videoChat from 'images/videoChat.png';
 
-export default function AccountSetting({ name, user_id, profile_picture, showAccountSettings, logOut }) {
+export default function AccountSetting({ name, user_id, profile_picture, logOut }) {
     return (
-        <div className={showAccountSettings ? 'account-modal active' : 'account-modal'}>
+        <div className='account-modal active'>
             <Link to=''>
                 <figure>
                     <img src={videoChat} alt="" />

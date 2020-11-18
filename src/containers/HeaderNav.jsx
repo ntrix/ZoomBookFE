@@ -67,19 +67,16 @@ export default function HeaderNav({
                 </li>
             </ul>
 
-            <AccountSetting
+            {showAccountSettings && <div className="modal-shadow" onClick={switchAccModalState} />}
+            {showAccountSettings && <AccountSetting
                 name={full_name}
                 profile_picture={profile_picture || defaultAvatar}
                 user_id={user_id}
-                showAccountSettings={showAccountSettings}
                 logOut={logOut}
-            />
+            />}
 
-            <Notifications
-                showNotifications={showNotifications}
-                friend_requests={friend_requests}
-                pendingFrs={pendingFrs}
-            />
+            {showNotifications && <div className="modal-shadow" onClick={switchNotifyModalState} />}
+            {showNotifications && <Notifications friend_requests={friend_requests} pendingFrs={pendingFrs}/>}
         </header>
     );
 }
