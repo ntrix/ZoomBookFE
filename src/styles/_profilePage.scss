@@ -102,10 +102,10 @@
                 font-weight: normal;
                 width: 40px;
                 background-color: $gray;
-                color: black;
+                color: orangered;
                 margin: 0;
                 &:hover {
-                    background-color: rgb(231, 231, 235);
+                    background-color: $border-gray;
                 }
             }
         }

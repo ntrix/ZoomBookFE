@@ -20,7 +20,7 @@ export default function EditProfileForm({
     const [imagePreview, setImagePreview] = useState('');
     const [coverPhotoPreview, setCoverPhotoPreview] = useState('');
     const [errors, setErrors] = useState([]);
-    const [btnText, setBtnText] = useState('Edit your profile');
+    const [btnText, setBtnText] = useState('Update your profile');
 
     const updateProfile = async (e) => {
         e.preventDefault();
