@@ -15,6 +15,7 @@ import deleteIcon from 'images/delete.png';
 
 import like from 'images/like.png';
 import love from 'images/love.png';
+import hug from 'images/hug.png';
 import haha from 'images/haha.png';
 import wow from 'images/wow.png';
 import sad from 'images/sad.png';
@@ -62,10 +63,11 @@ export default function TimelinePost({
     const reactionCounts = [
         { type: reactionFilter('Like'), img: like, key: 1 },
         { type: reactionFilter('Love'), img: love, key: 2 },
-        { type: reactionFilter('Haha'), img: haha, key: 3 },
-        { type: reactionFilter('Wow'), img: wow, key: 4 },
-        { type: reactionFilter('Sad'), img: sad, key: 5 },
-        { type: reactionFilter('Angry'), img: angry, key: 6 },
+        { type: reactionFilter('Hug'), img: hug, key: 3 },
+        { type: reactionFilter('Haha'), img: haha, key: 4 },
+        { type: reactionFilter('Wow'), img: wow, key: 5 },
+        { type: reactionFilter('Sad'), img: sad, key: 6 },
+        { type: reactionFilter('Angry'), img: angry, key: 7 },
     ];
 
     const sortedReactionCounts = reactionCounts.sort((a, b) => b.type - a.type);

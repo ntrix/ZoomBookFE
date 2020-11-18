@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import like from 'images/like.png';
 import love from 'images/love.png';
+import hug from 'images/hug.png';
 import haha from 'images/haha.png';
 import wow from 'images/wow.png';
 import sad from 'images/sad.png';
@@ -26,6 +27,7 @@ export default function PostReaction({ post_id, user_id, setPostReactions }) {
     const reactions = [
         { type: 'Like', img: like},
         { type: 'Love', img: love},
+        { type: 'Hug', img: hug},
         { type: 'Haha', img: haha},
         { type: 'Wow', img: wow},
         { type: 'Sad', img: sad},
