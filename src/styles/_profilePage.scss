@@ -113,11 +113,20 @@
             padding: 1em;
             @include flex(column space-between, center);
             flex-wrap: wrap;
-            label {
-                font-weight: bold;
+            h3 {
                 width: 100%;
-                font-size: 1.2rem;
-                margin-bottom: 1em;
+            }
+            label {
+                padding: 0.5rem 1rem;
+                font-weight: bold;
+                color: $blue;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            input[type='file'] {
+                position: absolute;
+                width: 0;
             }
             input[type='text'],
             textarea {
@@ -150,16 +159,6 @@
                     border: none;
                     border-radius: 0.3rem;
                     background-color: $gray;
-                }
-                input[type='file'] {
-                    width: 30px;
-                    opacity: 0;
-                    position: absolute;
-                    right: 0;
-                    cursor: pointer;
-                    &:hover {
-                        background-color: $gray;
-                    }
                 }
             }
         }

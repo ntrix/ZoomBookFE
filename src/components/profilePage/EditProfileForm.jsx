@@ -81,12 +81,14 @@ export default function EditProfileForm({
 
                 <div>
                     <div>
-                        <label htmlFor="profile_picture">Profile Picture</label>Edit
-                        <input
-                            type="file"
-                            name="profile_picture"
-                            onChange={(e) => handleFile(e, setProfile_picture, setImagePreview)}
-                        />
+                        <h3>Profile Picture</h3>
+                        <label>Edit
+                            <input
+                                type="file"
+                                name="profile_picture"
+                                onChange={(e) => handleFile(e, setProfile_picture, setImagePreview)}
+                            />
+                        </label>
                     </div>
 
                     <div>
@@ -99,12 +101,14 @@ export default function EditProfileForm({
                 </div>
                 <div>
                     <div>
-                        <label htmlFor="cover_photo">Cover Photo</label>Edit
-                        <input
-                            type="file"
-                            name="cover_photo"
-                            onChange={(e) => handleFile(e, setCover_photo, setCoverPhotoPreview)}
-                        />
+                        <h3>Cover Photo</h3>
+                        <label>Edit
+                            <input
+                                type="file"
+                                name="cover_photo"
+                                onChange={(e) => handleFile(e, setCover_photo, setCoverPhotoPreview)}
+                            />
+                        </label>
                     </div>
 
                     <div>
@@ -117,7 +121,7 @@ export default function EditProfileForm({
                 </div>
 
                 <div>
-                    <label htmlFor="first_name">First Name</label>
+                    <h3 htmlFor="first_name">First Name</h3>
                     <input
                         type="text"
                         name="first_name"
@@ -128,7 +132,7 @@ export default function EditProfileForm({
                 </div>
 
                 <div>
-                    <label htmlFor="last_name">Last Name</label>
+                    <h3 htmlFor="last_name">Last Name</h3>
                     <input
                         type="text"
                         name="last_name"
@@ -139,7 +143,7 @@ export default function EditProfileForm({
                 </div>
 
                 <div>
-                    <label htmlFor="bio">Bio</label>
+                    <h3 htmlFor="bio">Bio</h3>
                     <textarea
                         name="bio"
                         cols="40"
