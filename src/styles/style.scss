@@ -265,15 +265,25 @@ body {
         @media screen and(max-width: 768px) {
             width: auto;
         }
-        input {
-            padding: 0.5em;
-            border: none;
+        .search-box {
+            display: flex;
+            margin: 0 0.5rem;
             border-radius: 0.3rem;
             background-color: white;
             flex: 1;
-            margin: 0 0.5rem;
+
+        }
+        input {
+            padding: 0.5em;
+            border: none;
             font-size: 1rem;
             outline: none;
+            flex: 1;
+        img {
+            height: 100%;
+            margin: auto 0.5rem;
+        
+        }
         }
         button {
             width: 1px;
@@ -283,8 +293,8 @@ body {
     a {
         text-decoration: none;
         border-radius: 1.5rem;
-        padding: 0.3rem 0.5rem;
-        margin-right: 0.5rem;
+        padding: 0.3rem;
+        margin-right: 0.25rem;
         display: flex;
         align-items: center;
         background-color: $gray;
@@ -300,7 +310,6 @@ body {
             @include flex(row, center, center);
             img {
                 @extend .placeholder-image;
-                margin-right: 10px;
                 width: 30px !important;
                 height: 30px !important;
             }
@@ -308,7 +317,7 @@ body {
         li {
             font-weight: bold;
             color: black;
-            margin-right: 0.5rem;
+            margin-right: 0.25rem;
             position: relative;
             &:hover span {
                 opacity: 1;
