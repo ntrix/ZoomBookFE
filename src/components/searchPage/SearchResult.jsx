@@ -14,7 +14,7 @@ export default function SearchResult({ currentUser, location }) {
                     people.map((person) => (
                         <figure key={person._id}>
                             <Link to={`/users/${person._id}/profile`}>
-                                <img src={person.profile_picture || defaultAvatar} alt="" />
+                                <img src={person.avatar || defaultAvatar} alt="" />
                                 <figcaption>{`${person.first_name} ${person.last_name}`}</figcaption>
                             </Link>
 

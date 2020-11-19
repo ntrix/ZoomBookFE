@@ -18,7 +18,7 @@ export default function Friends({ friends }) {
                                 key={`${friend.first_name} ${friend.last_name}`}
                             >
                                 <figure>
-                                    <img src={friend.profile_picture || defaultAvatar} alt="" />
+                                    <img src={friend.avatar || defaultAvatar} alt="" />
                                     <figcaption>{`${friend.first_name} ${friend.last_name}`}</figcaption>
                                 </figure>
                             </Link>

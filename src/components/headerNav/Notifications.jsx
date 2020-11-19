@@ -29,7 +29,7 @@ export default function Notifications({ friend_requests, pendingFrs }) {
             {friend_requests && pendingFrs.map((fr) => (
                 <article key={fr._id}>
                     <figure>
-                        <img src={fr.from.profile_picture} alt="" />
+                        <img src={fr.from.avatar} alt="" />
                         <figcaption>
                             <strong>{`${fr.from.first_name} ${fr.from.last_name}`}</strong> has
                             sent you a friend request.

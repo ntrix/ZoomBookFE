@@ -3,7 +3,7 @@ import TimelinePost from '../timelinePage/TimelinePost';
 import headers from 'services/headers';
 import axios from 'axios';
 
-export default function UserPosts({ currentUser, profile_user_id, profile_picture }) {
+export default function UserPosts({ currentUser, profile_user_id, avatar }) {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -45,7 +45,7 @@ export default function UserPosts({ currentUser, profile_user_id, profile_pictur
                             post_id={post._id}
                             user={`${post.user.first_name} ${post.user.last_name}`}
                             user_id={post.user._id}
-                            profile_picture={profile_picture}
+                            avatar={avatar}
                             content={post.content}
                             image={post.image}
                             comments={post.comments}

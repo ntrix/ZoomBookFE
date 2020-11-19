@@ -10,7 +10,7 @@ export default function Person({
     current_user_id,
     first_name,
     last_name,
-    profile_picture,
+    avatar,
     person_id,
     btnText,
 }) {
@@ -29,7 +29,7 @@ export default function Person({
     return (
         <article>
             <Link to={`/users/${person_id}/profile`}>
-                <img src={profile_picture || defaultAvatar} alt="" />
+                <img src={avatar || defaultAvatar} alt="" />
             </Link>
 
             <div>

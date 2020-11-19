@@ -11,7 +11,7 @@ import edit from 'images/edit.png';
 
 export default function HeaderNav({
     username,
-    profile_picture,
+    avatar,
     user_id,
     full_name,
     friend_requests,
@@ -43,7 +43,7 @@ export default function HeaderNav({
 
             <ul>
                 <Link to={`/users/${user_id}/profile`}>
-                    <li><img src={profile_picture || defaultAvatar} alt="" /></li>
+                    <li><img src={avatar || defaultAvatar} alt="" /></li>
                     <li>Hi {username}!</li>
                 </Link>
 
@@ -70,7 +70,7 @@ export default function HeaderNav({
             {showAccountSettings && <div className="modal-shadow" onClick={switchAccModalState} />}
             {showAccountSettings && <AccountSetting
                 name={full_name}
-                profile_picture={profile_picture || defaultAvatar}
+                avatar={avatar || defaultAvatar}
                 user_id={user_id}
                 logOut={logOut}
             />}

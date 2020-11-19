@@ -12,7 +12,7 @@ export default function EditProfileForm({
     handleClick,
     currentUser,
 }) {
-    const [profile_picture, setProfile_picture] = useState(image);
+    const [avatar, setAvatar] = useState(image);
     const [cover_photo, setCover_photo] = useState(cover);
     const [bio, setBio] = useState('');
     const [first_name, setFirst_name] = useState('');
@@ -27,7 +27,7 @@ export default function EditProfileForm({
         setBtnText('Waiting...');
         try {
             const userData = {
-                profile_picture: profile_picture || image,
+                avatar: avatar || image,
                 cover_photo: cover_photo || cover,
                 bio: bio || userBio,
                 first_name: first_name || userFirstName,
@@ -85,8 +85,8 @@ export default function EditProfileForm({
                         <label>Edit
                             <input
                                 type="file"
-                                name="profile_picture"
-                                onChange={(e) => handleFile(e, setProfile_picture, setImagePreview)}
+                                name="avatar"
+                                onChange={(e) => handleFile(e, setAvatar, setImagePreview)}
                             />
                         </label>
                     </div>

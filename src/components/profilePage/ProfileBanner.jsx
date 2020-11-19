@@ -11,7 +11,7 @@ export default function ProfileBanner({
     last_name,
     bio,
     cover_photo,
-    profile_picture,
+    avatar,
     notLoggedInUser,
     currentUser,
     friends,
@@ -29,7 +29,7 @@ export default function ProfileBanner({
                     <img src={cover_photo? cover_photo: defaultCover} alt="" className="cover-photo" />
                 </div>
 
-                <img src={profile_picture || defaultAvatar} alt="" className="profile-picture" />
+                <img src={avatar || defaultAvatar} alt="" className="profile-picture" />
             </div>
 
             <article>
@@ -55,7 +55,7 @@ export default function ProfileBanner({
                             showEditForm={showEditProfileForm}
                             handleClick={switchFormState}
                             userBio={bio}
-                            image={profile_picture}
+                            image={avatar}
                             cover={cover_photo? cover_photo: defaultCover}
                             userFirstName={first_name}
                             userLastName={last_name}

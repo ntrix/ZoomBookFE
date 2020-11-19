@@ -9,7 +9,7 @@ export default function PostComment({ comments }) {
             {comments.map((comment) => (
                 <figure key={comment._id}>
                     <Link to={`/users/${comment.user._id}/profile`}>
-                        <img src={comment.user.profile_picture || defaultAvatar} alt="" />
+                        <img src={comment.user.avatar || defaultAvatar} alt="" />
                     </Link>
 
                     <figcaption>

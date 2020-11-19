@@ -25,7 +25,7 @@ export default function TimelinePost({
     post_id,
     user,
     user_id,
-    profile_picture,
+    avatar,
     content,
     image,
     comments,
@@ -112,7 +112,7 @@ export default function TimelinePost({
 
             <Link to={`/users/${user_id}/profile`}>
                 <figure className="user-info">
-                    <img src={profile_picture || defaultAvatar} alt="" />
+                    <img src={avatar || defaultAvatar} alt="" />
 
                     <figcaption>
                         <p className="username">{user}</p>
@@ -175,7 +175,7 @@ export default function TimelinePost({
             <PostComment comments={postComments} />
 
             <form onSubmit={(e) => createComment(e)}>
-                <img src={currentUser.profile_picture || defaultAvatar} alt="" />
+                <img src={currentUser.avatar || defaultAvatar} alt="" />
 
                 <input
                     type="text"

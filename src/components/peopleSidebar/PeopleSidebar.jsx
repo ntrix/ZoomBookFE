@@ -31,7 +31,7 @@ export default function PeopleSidebar({ currentUser }) {
                     person_id={person._id}
                     first_name={person.first_name}
                     last_name={person.last_name}
-                    profile_picture={person.profile_picture}
+                    avatar={person.avatar}
                     btnText={'Add friend'}
                 />
             ))}

@@ -41,7 +41,7 @@ export default function TimelinePage({ match, logOut }) {
             <HeaderNav
                 full_name={`${user.first_name} ${user.last_name}`}
                 username={user.first_name}
-                profile_picture={user.profile_picture}
+                avatar={user.avatar}
                 user_id={user._id}
                 friend_requests={user.friend_requests}
                 logOut={logOut}

@@ -9,7 +9,7 @@ export default function SearchPage({ currentUser, logOut, location }) {
         <>
             <HeaderNav
                 username={currentUser.first_name}
-                profile_picture={currentUser.profile_picture}
+                avatar={currentUser.avatar}
                 user_id={currentUser._id}
                 full_name={`${currentUser.first_name} ${currentUser.last_name}`}
                 friend_requests={currentUser.friend_requests}

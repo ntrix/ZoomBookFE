@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import logOutIcon from 'images/logOut.png';
 import videoChat from 'images/videoChat.png';
 
-export default function AccountSetting({ name, user_id, profile_picture, logOut }) {
+export default function AccountSetting({ name, user_id, avatar, logOut }) {
     return (
         <div className='account-modal active'>
             <Link to=''>
@@ -22,7 +22,7 @@ export default function AccountSetting({ name, user_id, profile_picture, logOut 
 
             <Link to={`/users/${user_id}/profile`}>
                 <div className="option">
-                    <img src={profile_picture} alt="" />
+                    <img src={avatar} alt="" />
                     <p>Profile / Setting</p>
                 </div>
             </Link>

@@ -28,7 +28,7 @@ export default function ProfilePage({ match, currentUser, logOut }) {
                 username={currentUser.first_name}
                 full_name={`${currentUser.first_name} ${currentUser.last_name}`}
                 user_id={currentUser._id}
-                profile_picture={currentUser.profile_picture}
+                avatar={currentUser.avatar}
                 friend_requests={user.friend_requests}
                 logOut={logOut}
             />
@@ -39,7 +39,7 @@ export default function ProfilePage({ match, currentUser, logOut }) {
                     last_name={user.last_name || ''}
                     bio={user.bio}
                     cover_photo={user.cover_photo}
-                    profile_picture={user.profile_picture}
+                    avatar={user.avatar}
                     notLoggedInUser={match.params.id}
                     currentUser={currentUser._id}
                     friends={currentUser.friends}
@@ -51,7 +51,7 @@ export default function ProfilePage({ match, currentUser, logOut }) {
                     <UserPosts
                         currentUser={currentUser}
                         profile_user_id={user._id}
-                        profile_picture={user.profile_picture}
+                        avatar={user.avatar}
                     />
                 </div>
             </section>

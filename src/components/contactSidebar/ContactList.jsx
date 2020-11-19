@@ -16,7 +16,7 @@ export default function ContactList({ friend, socket, currentUserID }) {
     return (
         <div className="info-chat-wrapper">
             <figure key={friend._id} onClick={() => openChat()}>
-                <img src={friend.profile_picture || defaultAvatar} alt="" />
+                <img src={friend.avatar || defaultAvatar} alt="" />
                 <figcaption>{`${friend.first_name} ${friend.last_name}`}</figcaption>
             </figure>
 

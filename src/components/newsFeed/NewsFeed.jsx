@@ -46,7 +46,7 @@ export default function NewsFeed({ currentUser, socket }) {
         <>
             <CreateNews
                 username={currentUser.first_name}
-                profile_picture={currentUser.profile_picture}
+                avatar={currentUser.avatar}
                 user_id={currentUser._id}
                 setPosts={setPosts}
                 socket={socket}
@@ -61,7 +61,7 @@ export default function NewsFeed({ currentUser, socket }) {
                         post_id={post._id}
                         user={`${post.user.first_name} ${post.user.last_name}`}
                         user_id={post.user._id}
-                        profile_picture={post.user.profile_picture}
+                        avatar={post.user.avatar}
                         content={post.content}
                         image={post.image}
                         comments={post.comments}
