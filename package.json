@@ -1,6 +1,6 @@
 {
     "name": "ZoomBookFE",
-    "homepage": "https://zoombook.herokuapp.com",
+    "homepage": "https://zoombookbe.herokuapp.com",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
