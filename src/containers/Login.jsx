@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-import LoginForm from '../components/login/LoginForm';
-import SignUpForm from '../components/login/SignUpForm';
+import LoginForm from '../components/loginPage/LoginForm';
+import SignUpForm from '../components/loginPage/SignUpForm';
 
 import Logo from 'images/ZoomBook.png';
 
