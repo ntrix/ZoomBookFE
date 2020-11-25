@@ -1,5 +1,5 @@
 {
-    "name": "ZoomBook",
+    "name": "zoombook",
     "homepage": "https://zoombook.herokuapp.com",
     "version": "0.1.0",
     "private": true,
@@ -15,13 +15,13 @@
         "react-scripts": "^4.0.0",
         "socket.io-client": "^2.3.0"
     },
+    "proxy": "https://zoombook.herokuapp.com",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
-    "proxy": "https://zoombookbe.herokuapp.com/",
     "eslintConfig": {
         "extends": "react-app"
     },
